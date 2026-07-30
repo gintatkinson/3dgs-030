@@ -1,7 +1,6 @@
 ---
 issue_id: "50"
 type: "epic"
-issue_id: "50"
 generation_mode: "subagent"
 spec_source: "Project Constitution"
 ---
