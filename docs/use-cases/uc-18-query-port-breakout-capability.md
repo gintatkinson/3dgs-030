@@ -1,6 +1,7 @@
 ---
 title: "Query Port Breakout Capability for Partition-Capable Physical Ports"
 type: "use-case"
+issue_id: "90"
 generation_mode: "subagent"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08"
 schema_containers:
