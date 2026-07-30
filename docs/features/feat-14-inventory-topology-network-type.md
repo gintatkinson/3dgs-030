@@ -20,7 +20,23 @@ The `inventory-topology` container is a presence container augmenting the `netwo
 
 ## UML Class Diagram
 
-
+```mermaid
+classDiagram
+    class Nw_networks {
+    }
+    class Nw:network {
+    }
+    class Nw_networkTypes {
+    }
+    class InventoryTopology {
+        <<presence>>
+    }
+    "Nw_networks" *-- "Nw:network" : network
+    "Nw:network" *-- "Nw_networkTypes" : network-types
+    "Nw_networkTypes" *-- InventoryTopology : inventory-topology
+    note for InventoryTopology "Presence signals physical-layer topology with inventory mapping augmentations"
+    note for InventoryTopology "When absent, child augmentations are not instantiated"
+```
 
 ## Interface Requirements
 

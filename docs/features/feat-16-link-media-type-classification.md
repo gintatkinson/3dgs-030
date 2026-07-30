@@ -22,7 +22,57 @@ The container is conditioned on the network being of `inventory-topology` type v
 
 ## UML Class Diagram
 
-
+```mermaid
+classDiagram
+    class Nw_networks {
+    }
+    class Nw:network {
+    }
+    class Nt_link {
+    }
+    class InventoryMappingAttributes {
+        +String linkType [0..1]
+    }
+    class LinkType {
+        <<identity>>
+        +String id [1]
+    }
+    class Copper {
+        <<identity>>
+    }
+    class Fiber {
+        <<identity>>
+    }
+    class Coax {
+        <<identity>>
+    }
+    class Microwave {
+        <<identity>>
+    }
+    class Wlan {
+        <<identity>>
+    }
+    class Unknown {
+        <<identity>>
+    }
+    class LeasedFiber {
+        <<identity>>
+    }
+    "Nw_networks" *-- "Nw:network" : network
+    "Nw:network" *-- "Nt_link" : link
+    "Nt_link" *-- InventoryMappingAttributes : inventory-mapping-attributes
+    InventoryMappingAttributes ..> LinkType : link-type (identityref)
+    LinkType <|-- Copper
+    LinkType <|-- Fiber
+    LinkType <|-- Coax
+    LinkType <|-- Microwave
+    LinkType <|-- Wlan
+    LinkType <|-- Unknown
+    Fiber <|-- LeasedFiber
+    note for InventoryMappingAttributes "Presence signals physical link at lowest underlay level"
+    note for LinkType "Extensible base identity — specialized inventory models may define additional derived identities"
+    note for LeasedFiber "Derived from fiber: third-party link with limited visibility into physical attributes"
+```
 
 ## Interface Requirements
 
