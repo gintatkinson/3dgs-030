@@ -105,4 +105,56 @@ void main() {
       expect(validateIso8601('2024-01-15'), isA<String>());
     });
   });
+
+  group('validateAstronomicalBody', () {
+    test('"earth" is valid', () {
+      expect(validateAstronomicalBody('earth'), isNull);
+    });
+
+    test('"mars" is valid', () {
+      expect(validateAstronomicalBody('mars'), isNull);
+    });
+
+    test('"67p/churyumov-gerasimenko" is valid', () {
+      expect(validateAstronomicalBody('67p/churyumov-gerasimenko'), isNull);
+    });
+
+    test('"enceladus" is valid', () {
+      expect(validateAstronomicalBody('enceladus'), isNull);
+    });
+
+    test('null returns null', () {
+      expect(validateAstronomicalBody(null), isNull);
+    });
+
+    test('empty string returns null', () {
+      expect(validateAstronomicalBody(''), isNull);
+    });
+
+    test('value with control character is invalid', () {
+      expect(validateAstronomicalBody('\x00'), isA<String>());
+    });
+  });
+
+  group('normalizeAstronomicalBody', () {
+    test('"Earth" normalizes to "earth"', () {
+      expect(normalizeAstronomicalBody('Earth'), equals('earth'));
+    });
+
+    test('"EARTH" normalizes to "earth"', () {
+      expect(normalizeAstronomicalBody('EARTH'), equals('earth'));
+    });
+
+    test('"MARS" normalizes to "mars"', () {
+      expect(normalizeAstronomicalBody('MARS'), equals('mars'));
+    });
+
+    test('null returns null', () {
+      expect(normalizeAstronomicalBody(null), isNull);
+    });
+
+    test('empty returns empty', () {
+      expect(normalizeAstronomicalBody(''), equals(''));
+    });
+  });
 }

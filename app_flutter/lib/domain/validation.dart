@@ -18,6 +18,35 @@ String? validateIso8601(String? value) {
   return null;
 }
 
+final _astronomicalBodyRegex = RegExp(
+  r'^[ -@\[\^_-~]*$',
+);
+
+/// Validates that [value] is a valid astronomical body name per RFC 9179.
+///
+/// Accepts ASCII printable characters excluding uppercase letters;
+/// uppercase letters are auto-converted to lowercase before validation.
+/// Returns `null` if valid, or an error message string if invalid.
+/// Returns `null` for null or empty input (optional field semantics).
+String? validateAstronomicalBody(String? value) {
+  if (value == null || value.isEmpty) {
+    return null;
+  }
+  final normalized = value.toLowerCase();
+  if (!_astronomicalBodyRegex.hasMatch(normalized)) {
+    return 'Must contain only ASCII printable characters for astronomical body name';
+  }
+  return null;
+}
+
+/// Normalizes an astronomical body name to lowercase.
+///
+/// Returns the lowercase version of [value], or `null` if [value] is null.
+String? normalizeAstronomicalBody(String? value) {
+  if (value == null) return null;
+  return value.toLowerCase();
+}
+
 /// Generic validation function that evaluates constraints on a map of input values.
 bool validateFields(Map<String, dynamic> input, List<FieldDescriptor> descriptors) {
   for (final fd in descriptors) {
