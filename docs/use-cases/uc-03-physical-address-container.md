@@ -1,6 +1,7 @@
 ---
 title: "Capture Physical Address Information"
 type: "use-case"
+issue_id: "18"
 generation_mode: "subagent"
 spec_source: "draft-ietf-ivy-network-inventory-location"
 schema_containers:

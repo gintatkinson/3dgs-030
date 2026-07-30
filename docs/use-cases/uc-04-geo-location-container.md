@@ -1,6 +1,7 @@
 ---
 title: "Capture Geographic Location Coordinates"
 type: "use-case"
+issue_id: "19"
 generation_mode: "subagent"
 spec_source: "draft-ietf-ivy-network-inventory-location"
 schema_containers:

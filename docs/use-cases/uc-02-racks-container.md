@@ -1,6 +1,7 @@
 ---
 title: "Manage Rack Inventory"
 type: "use-case"
+issue_id: "17"
 generation_mode: "subagent"
 spec_source: "draft-ietf-ivy-network-inventory-location"
 schema_containers:

@@ -1,6 +1,7 @@
 ---
 title: "Map Rack Location Within Facility"
 type: "use-case"
+issue_id: "20"
 generation_mode: "subagent"
 spec_source: "draft-ietf-ivy-network-inventory-location"
 schema_containers:
