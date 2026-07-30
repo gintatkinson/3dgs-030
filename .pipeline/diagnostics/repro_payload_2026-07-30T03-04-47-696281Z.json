@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-07-30T03:04:47.696281Z",
+  "tooling": {
+    "name": "parity_auditor",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "./skills/spec-orchestrator/scripts/verify_model_coverage.py --spec-only --allow-missing-specs",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/3dgs-030.git",
+    "commit_hash": "3f0c6cb1fbf98cf42f97b1361075c59ae67723a2"
+  },
+  "failure": {
+    "traceback": "",
+    "error_summary": []
+  },
+  "reproduction_case": {
+    "target_file": "",
+    "snippet_type": "text",
+    "snippet_content": ""
+  }
+}
