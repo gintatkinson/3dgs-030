@@ -22,35 +22,7 @@ The container is conditioned on the network being of `inventory-topology` type v
 
 ## UML Class Diagram
 
-```mermaid
-classDiagram
-    class Nw_networks {
-    }
-    class Nw:network {
-    }
-    class Nw_node {
-    }
-    class Nt_terminationPoint {
-    }
-    class InventoryMappingAttributes {
-        +String neRef [0..1]
-        +String portRef [0..1]
-    }
-    class PortRef {
-        <<grouping>>
-        +String neRef [0..1]
-        +String portRef [0..1]
-    }
-    "Nw_networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nw_node" : node
-    "Nw_node" *-- "Nt_terminationPoint" : termination-point
-    "Nt_terminationPoint" *-- InventoryMappingAttributes : inventory-mapping-attributes
-    InventoryMappingAttributes ..> PortRef : uses (nwi:port-ref)
-    note for InventoryMappingAttributes "Presence signals physical TP mapped to a port component"
-    note for InventoryMappingAttributes "port-ref: leafref to port component within parent NE"
-    note for InventoryMappingAttributes "ne-ref: reference to NE hosting the port"
-    note for InventoryMappingAttributes "when: ../../nw:network-types/nwit:inventory-topology"
-```
+
 
 ## Interface Requirements
 

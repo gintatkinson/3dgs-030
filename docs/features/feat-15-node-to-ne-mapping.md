@@ -22,29 +22,7 @@ The container is conditioned on the network being of `inventory-topology` type v
 
 ## UML Class Diagram
 
-```mermaid
-classDiagram
-    class Nw_networks {
-    }
-    class Nw:network {
-    }
-    class Nw_node {
-    }
-    class InventoryMappingAttributes {
-        +String neRef [0..1]
-    }
-    class NeRef {
-        <<typedef>>
-        +String neRef [1]
-    }
-    "Nw_networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nw_node" : node
-    "Nw_node" *-- InventoryMappingAttributes : inventory-mapping-attributes
-    InventoryMappingAttributes ..> NeRef : type
-    note for InventoryMappingAttributes "Presence signals physical node mapped to a network element"
-    note for InventoryMappingAttributes "ne-ref: leafref to /nwi:network-inventory/nwi:network-elements/nwi:network-element/nwi:ne-id"
-    note for InventoryMappingAttributes "when: ../nw:network-types/nwit:inventory-topology"
-```
+
 
 ## Interface Requirements
 
