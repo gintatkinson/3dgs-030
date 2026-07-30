@@ -1,6 +1,5 @@
 ---
 issue_id: "50"
-title: "Network Inventory: Component Inventory"
 type: "epic"
 issue_id: "50"
 generation_mode: "subagent"

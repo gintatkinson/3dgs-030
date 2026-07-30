@@ -1,6 +1,5 @@
 ---
 issue_id: "49"
-title: "Network Inventory: Network Elements Management"
 type: "epic"
 issue_id: "49"
 generation_mode: "subagent"
