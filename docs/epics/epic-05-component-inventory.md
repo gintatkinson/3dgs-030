@@ -8,6 +8,34 @@ spec_source: "Project Constitution"
 
 ## 1. Context
 
+## UML Class Diagram
+
+```mermaid
+classDiagram
+    class Component {
+        +String component-id
+        +String class
+        +String hardware-rev
+        +String mfg-date
+        +String part-number
+        +String serial-number
+        +String asset-id
+        +Boolean is-fru
+    }
+    class NetworkElement {
+        +String ne-id
+    }
+    class SoftwareRev {
+        +String name
+        +String revision
+    }
+    NetworkElement *-- "*" Component : component
+    Component *-- "*" SoftwareRev : software-rev
+    Component --> Component : parent
+```
+
+## 2. Requirements & Checklist
+
 This Epic governs the functional specification for the `components` subtree of the `ietf-network-inventory` YANG module defined in draft-ietf-ivy-network-inventory-yang. Each network element contains a `components` container hosting a list of `component` entries keyed by `component-id`. Components represent the generalized inventory objects that can be managed like hardware components — including chassis, slots, boards, ports, CPUs, fans, power supplies, sensors, storage devices, and software components. The component model supports hierarchical containment (self-referencing parent references), class-based typing (union of IANA hardware classes and non-hardware identities), full manufacturing and asset tracking metadata, field-replaceable unit identification, and conditional attributes for topology position and multi-chassis designation.
 
 The identity `non-hardware-component-class` and the grouping `component-attributes` (which composes and refines `ne-component-common-entity-attributes` with RFC 6933 references) are defined in this bounded context.

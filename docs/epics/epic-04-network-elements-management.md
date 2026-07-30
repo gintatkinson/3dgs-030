@@ -8,6 +8,31 @@ spec_source: "Project Constitution"
 
 ## 1. Context
 
+## UML Class Diagram
+
+```mermaid
+classDiagram
+    class NetworkInventory {
+        <<component>>
+        +Boolean config = false
+    }
+    class NetworkElement {
+        +String ne-id
+        +String ne-type
+        +String uuid
+    }
+    class Component {
+        +String component-id
+        +String class
+    }
+    NetworkInventory *-- NetworkElements : network-elements
+    NetworkElements *-- "*" NetworkElement : network-element
+    NetworkElement *-- Components : components
+    Components *-- "*" Component : component
+```
+
+## 2. Requirements & Checklist
+
 This Epic governs the functional specification for the `network-elements` and `network-inventory` subtrees of the `ietf-network-inventory` YANG module defined in draft-ietf-ivy-network-inventory-yang. The module provides a read-only (`config false`) network-wide inventory data model for discovering and reporting network elements (NEs) managed by a network controller. This Epic partitions the NE management bounded context, capturing the root inventory container, the NE list with its identity system (`ne-type` / `ne-physical`), attribute schema (`ne-component-common-entity-attributes`), software revision tracking, and reference infrastructure (`ne-ref` typedef, `component-ref` / `port-ref` groupings).
 
 The module is classified as FUNCTIONAL (contains concrete data nodes with config false). Total leaf count well exceeds 40, depth exceeds 3, so the schema graph is partitioned into two Epic-level bounded contexts. This Epic covers the top-level container and the network-elements subtree.
