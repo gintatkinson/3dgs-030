@@ -1,0 +1,74 @@
+module ietf-network-inventory-topology {
+  yang-version 1.1;
+  namespace "urn:ietf:params:xml:ns:yang:ietf-network-inventory-topology";
+  prefix nwit;
+  import ietf-network { prefix nw; }
+  import ietf-network-topology { prefix nt; }
+  import ietf-network-inventory { prefix nwi; }
+
+  organization "IETF Network Inventory YANG (ivy) Working Group";
+  contact "WG Web: <https://datatracker.ietf.org/wg/ivy>";
+  description "YANG module for network topology and inventory mapping.";
+
+  revision 2026-06-25 { description "Initial revision."; }
+
+  identity link-type { description "Base identity for physical media type of a link."; }
+  identity copper { base link-type; description "Copper-based physical link."; }
+  identity fiber { base link-type; description "Fiber-based physical link."; }
+  identity coax { base link-type; description "Coaxial cable-based physical link."; }
+  identity microwave { base link-type; description "Microwave-based wireless link."; }
+  identity wlan { base link-type; description "IEEE 802.11 wireless link."; }
+  identity unknown { base link-type; description "Unknown link media type fallback."; }
+  identity leased-fiber { base fiber; description "Leased fiber link."; }
+
+  augment "/nw:networks/nw:network/nw:network-types" {
+    description "Introduces inventory-topology network type.";
+    container inventory-topology {
+      presence "Indicates physical network topology with inventory mapping.";
+      description "Container for the inventory-topology network type.";
+    }
+  }
+
+  augment "/nw:networks/nw:network/nw:node" {
+    when '../nw:network-types/nwit:inventory-topology';
+    description "Augments topology node with inventory mapping.";
+    container inventory-mapping-attributes {
+      presence "Indicates physical node mapped to a network element.";
+      description "Container for inventory mapping attributes of a node.";
+      leaf ne-ref { type nwi:ne-ref; description "Reference to the NE in inventory (1:1 mapping)."; }
+    }
+  }
+
+  augment "/nw:networks/nw:network/nt:link" {
+    when '../nw:network-types/nwit:inventory-topology';
+    description "Augments topology link with inventory attributes.";
+    container inventory-mapping-attributes {
+      presence "Indicates physical link at lowest underlay level.";
+      description "Container for inventory-related attributes of a link.";
+      leaf link-type {
+        type identityref { base link-type; }
+        description "Classification of link media type (copper, fiber, microwave, etc.).";
+      }
+    }
+  }
+
+  augment "/nw:networks/nw:network/nw:node/nt:termination-point" {
+    when '../../nw:network-types/nwit:inventory-topology';
+    description "Augments TP with inventory mapping and port breakout.";
+    container inventory-mapping-attributes {
+      presence "Indicates physical TP mapped to a port component.";
+      description "Container for inventory mapping attributes of a TP.";
+      uses nwi:port-ref;
+    }
+    container port-breakout {
+      presence "Indicates port supports channel breakout.";
+      config false;
+      description "Breakout capability of the physical port.";
+      list breakout-channel {
+        key "channel-id";
+        description "List of breakout channels available on this port.";
+        leaf channel-id { type uint16; description "Unique breakout channel identifier."; }
+      }
+    }
+  }
+}
