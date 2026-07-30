@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-07-30T02:42:43.456150Z",
+  "tooling": {
+    "name": "parity_auditor",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "./skills/spec-orchestrator/scripts/verify_model_coverage.py --spec-only --allow-missing-specs",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/3dgs-030.git",
+    "commit_hash": "64a479fdda2c72f8fb5c3d9a084f2aa6e2050c99"
+  },
+  "failure": {
+    "traceback": "",
+    "error_summary": [
+      "Use Case uc-01-locations-container.md must contain at least 14 detailed Alternate/Exception flows. Found only 0 flows. (Referenced features define 14 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)",
+      "Use Case uc-03-physical-address-container.md must contain at least 7 detailed Alternate/Exception flows. Found only 0 flows. (Referenced features define 7 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)",
+      "Use Case uc-04-geo-location-container.md is missing section '## 3. Trigger'.",
+      "Use Case uc-04-geo-location-container.md must contain at least 17 detailed Alternate/Exception flows. Found only 0 flows. (Referenced features define 17 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)",
+      "Use Case uc-05-rack-location-container.md must contain at least 6 detailed Alternate/Exception flows. Found only 0 flows. (Referenced features define 6 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)",
+      "Use Case uc-02-racks-container.md must contain at least 18 detailed Alternate/Exception flows. Found only 0 flows. (Referenced features define 18 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)"
+    ]
+  },
+  "reproduction_case": {
+    "target_file": "",
+    "snippet_type": "text",
+    "snippet_content": ""
+  }
+}
