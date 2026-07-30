@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-13T05:52:54.729204Z",
+  "tooling": {
+    "name": "reconcile_backlog",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "/Users/perkunas/.gemini/antigravity/brain/b91e5797-43f0-434d-8226-863a76883b35/scratch/reproduce_issue.py /Users/perkunas/.gemini/antigravity/brain/b91e5797-43f0-434d-8226-863a76883b35/scratch/repro_env",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/digital-pipeline-repo.git",
+    "commit_hash": "f1bd11f3b93399a5e19b6b9826a724f59ff7bff6"
+  },
+  "failure": {
+    "traceback": "Traceback (most recent call last):\n  File \"/Users/perkunas/jail/digital-pipeline-repo/skills/spec-orchestrator/scripts/reconcile_backlog.py\", line 829, in main\n    updated_content, completed = update_checklist_in_file(filepath, issue_dict, rules)\n  File \"/Users/perkunas/jail/digital-pipeline-repo/skills/spec-orchestrator/scripts/reconcile_backlog.py\", line 166, in update_checklist_in_file\n    sys.exit(1)\nSystemExit: 1\n",
+    "error_summary": [
+      "1"
+    ]
+  },
+  "reproduction_case": {
+    "target_file": "",
+    "snippet_type": "text",
+    "snippet_content": ""
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-07-18T16:50:05.915428Z",
+  "tooling": {
+    "name": "parity_auditor",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "skills/spec-orchestrator/scripts/verify_model_coverage.py",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/digital-pipeline-repo.git",
+    "commit_hash": "ce3851956be445c3e2c63b94ecb82458666aeaa4"
+  },
+  "failure": {
+    "traceback": "",
+    "error_summary": [
+      "Flutter Viewport File 'app_flutter/test/topology/scene_3d_viewport_widget_test.dart' does not implement the mandatory playhead rate clamps [0.9, 1.1] for 4D spatial-temporal viewports.",
+      "Flutter Viewport File 'app_flutter/lib/features/topology/scene_3d_viewport.dart' does not implement the mandatory playhead rate clamps [0.9, 1.1] for 4D spatial-temporal viewports.",
+      "Flutter File 'app_flutter/lib/domain/cesium_3d/native/native_resource.dart' contains hardcoded alarm color '0xFFFFFFFF' (Forbidden design token color (0xFFFFFFFF)). Reference ThemeData or design-tokens config instead."
+    ]
+  },
+  "reproduction_case": {
+    "target_file": "",
+    "snippet_type": "text",
+    "snippet_content": ""
+  }
+}

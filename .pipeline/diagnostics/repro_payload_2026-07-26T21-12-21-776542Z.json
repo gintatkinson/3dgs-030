@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-07-26T21:12:21.776542Z",
+  "tooling": {
+    "name": "parity_auditor",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "skills/spec-orchestrator/scripts/verify_model_coverage.py --spec-only",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/digital-pipeline-repo.git",
+    "commit_hash": "6a26929171e8065d517c5abdd53cbc43104e047f"
+  },
+  "failure": {
+    "traceback": "",
+    "error_summary": [
+      "Logical UI Compliance: Feature 'docs/features/feat-06-upstream-regression-testing.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-05-temporal-precision.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-27-coverage-gate.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-15-off-thread-telemetry.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-04-numeric-metrics.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-44-downstream-baseline.md' specifies invalid component type 'PropertyGrid'. It must be instantiated in logical-layout.json.",
+      "Logical UI Compliance: Feature 'docs/features/feat-44-downstream-baseline.md' specifies invalid container ID 'properties_view'.",
+      "Logical UI Compliance: Feature 'docs/features/feat-05-agent-bug-filing.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-45-yang-decomposition.md' specifies invalid component type 'PropertyGrid'. It must be instantiated in logical-layout.json.",
+      "Logical UI Compliance: Feature 'docs/features/feat-002-alternate-systems.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-03-dynamics-temporal.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-18-parent-epic-linkage.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-28-traceability-gate.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-13-zero-codegen-grid.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-04-diagnostic-payload-generation.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-10-logical-ui-layout.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-14-event-echo-guard.md' is a UI feature but lacks the 'Logical UI & Layout Bindings' section.",
+      "Logical UI Compliance: Feature 'docs/features/feat-11-topology-map.md' specifies invalid component type 'TopologyMap'. It must be instantiated in logical-layout.json.",
+      "Logical UI Compliance: Feature 'docs/features/feat-12-yang-compiler.md' specifies invalid component type 'TopologyMap'. It must be instantiated in logical-layout.json."
+    ]
+  },
+  "reproduction_case": {
+    "target_file": "docs/features/feat-06-upstream-regression-testing.md",
+    "snippet_type": "markdown",
+    "snippet_content": "---\ntitle: \"Feature 06: Upstream Ingestion and Auto-Regression Testing\"\ntype: \"feature\"\ninterface_type: \"api\"\ngeneration_mode: \"subagent\"\nspec_source: \"Project Constitution\"\n---\n\n# Feature: Upstream Ingestion and Auto-Regression Testing\n\n## Parent Epic\n- [ ] #[EpicID] - [Epic Title](../epics/epic-XX-name.md) (semantic linkage justification)\n\n## Description\nEnsures that filed bugs are ingested into the upstream repository's test suite to verify fixes and prevent future regression of reported tooling issues.\n\n## UML Class Diagram\n```mermaid\nclassDiagram\n    class IngestionSubsystem {\n        +IngestionWorkflow workflow [1]\n    }\n    class IngestionWorkflow {\n        +Boolean[1] parseIssueBody(String body)\n        +void writeReproCase(String snippet, String filename)\n        +Boolean[1] runRegressionTests(String repoUrl)\n        +void closeIssue(String issueId)\n    }\n    IngestionSubsystem *-- IngestionWorkflow\n```\n\n## Interface Requirements\n### 1. Payload Schema\n- Input: GitHub Issue created by Feature 05.\n- Output: Test file written to `tests/repro_cases/[issue_number].md`.\n\n### 2. Test Data Shape\n- See feat-01 for base payload schema and validation rules.\n\n### 3. Logical Operations & Interface Messages\n1. Upstream GitHub Action triggers on issue creation with `bug` or `feature` labels.\n2. The Action parses the JSON payload from the issue description.\n3. The Action writes the `snippet_content` to a local test file.\n4. The Action executes the validators against the new test file to verify failure.\n5. Post-patching, the suite ensures the case passes, merges the fix, and automatically closes the issue.\n\n### 4. Logical Exception States & Validation Failures\n1. If the Action receives a corrupted or unparsable JSON payload, it comments on the issue requesting manual formatting and exits.\n"
+  }
+}

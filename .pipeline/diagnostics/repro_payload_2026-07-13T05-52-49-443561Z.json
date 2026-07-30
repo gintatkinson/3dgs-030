@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-13T05:52:49.443561Z",
+  "tooling": {
+    "name": "reconcile_backlog",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "/Users/perkunas/.gemini/antigravity/brain/b91e5797-43f0-434d-8226-863a76883b35/scratch/reproduce_issue.py /Users/perkunas/.gemini/antigravity/brain/b91e5797-43f0-434d-8226-863a76883b35/scratch/repro_env",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/digital-pipeline-repo.git",
+    "commit_hash": "f1bd11f3b93399a5e19b6b9826a724f59ff7bff6"
+  },
+  "failure": {
+    "traceback": "Traceback (most recent call last):\n  File \"/Users/perkunas/jail/digital-pipeline-repo/skills/spec-orchestrator/scripts/reconcile_backlog.py\", line 803, in main\n    reconcile_epic_checklists(\n  File \"/Users/perkunas/jail/digital-pipeline-repo/skills/spec-orchestrator/scripts/reconcile_backlog.py\", line 486, in reconcile_epic_checklists\n    branch_name = get_current_branch(workspace_root)\n  File \"/Users/perkunas/jail/digital-pipeline-repo/skills/spec-orchestrator/scripts/reconcile_backlog.py\", line 277, in get_current_branch\n    res = subprocess.run([\"git\", \"branch\", \"--show-current\"], cwd=workspace_dir, capture_output=True, text=True)\n  File \"/Users/perkunas/.gemini/antigravity/brain/b91e5797-43f0-434d-8226-863a76883b35/scratch/reproduce_issue.py\", line 62, in mock_run\n    return original_run(cmd, *args, **kwargs)\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 505, in run\n    with Popen(*popenargs, **kwargs) as process:\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 951, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/subprocess.py\", line 1821, in _execute_child\n    raise child_exception_type(errno_num, err_msg, err_filename)\nNotADirectoryError: [Errno 20] Not a directory: '/Users/perkunas/.gemini/antigravity/brain/b91e5797-43f0-434d-8226-863a76883b35/scratch/repro_env/epics/epic-01-my-epic.md'\n",
+    "error_summary": [
+      "[Errno 20] Not a directory: '/Users/perkunas/.gemini/antigravity/brain/b91e5797-43f0-434d-8226-863a76883b35/scratch/repro_env/epics/epic-01-my-epic.md'"
+    ]
+  },
+  "reproduction_case": {
+    "target_file": "",
+    "snippet_type": "text",
+    "snippet_content": ""
+  }
+}

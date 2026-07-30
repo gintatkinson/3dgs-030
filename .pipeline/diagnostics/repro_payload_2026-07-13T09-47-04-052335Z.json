@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-07-13T09:47:04.052335Z",
+  "tooling": {
+    "name": "parity_auditor",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "parity-auditor --spec-only --allow-missing-specs",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/digital-pipeline-repo.git",
+    "commit_hash": "1d410528e5f2060cb962416ba5a20dde575fa71d"
+  },
+  "failure": {
+    "traceback": "",
+    "error_summary": [
+      "Feature feat-16-gpu-topology.md is missing section '## UML Class Diagram'.",
+      "Feature feat-16-gpu-topology.md is missing section '### 1. Test Data Shape'.",
+      "Feature feat-16-gpu-topology.md is missing section '### 3. Visual Layout & Arrangement'.",
+      "Feature feat-16-gpu-topology.md is missing section '### 4. Interactive Flow & States'.",
+      "Feature feat-15-off-thread-telemetry.md is missing section '## UML Class Diagram'.",
+      "Feature feat-44-downstream-baseline.md contains class 'FirestoreRepositoryAdapter' with zero relationships. Isolated classes are prohibited.",
+      "Feature feat-44-downstream-baseline.md contains a disconnected UML Class Diagram. Classes ['FirestoreRepositoryAdapter'] are not structurally connected to 'PersistenceBootstrap'.",
+      "Feature feat-44-downstream-baseline.md class 'FirestoreRepositoryAdapter' attribute 'db' has invalid type 'FirestoreInstance'. UML primitive types must be Boolean, Decimal64, Integer, Real, String (case-sensitive), or reference another class.",
+      "Feature feat-44-downstream-baseline.md class 'AbstractRepository' method 'fetchNodes' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Feature feat-44-downstream-baseline.md class 'FirestoreRepositoryAdapter' attribute 'db' is missing a multiplicity (e.g. [1], [0..1], [0..*]).",
+      "Feature feat-44-downstream-baseline.md class 'FirestoreRepositoryAdapter' method 'fetchNodes' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Feature feat-44-downstream-baseline.md class 'ComplianceValidator' method 'validateSchema' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Feature feat-44-downstream-baseline.md class 'ComplianceValidator' method 'verifyLiveConnection' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Feature feat-13-zero-codegen-grid.md is missing section '## UML Class Diagram'.",
+      "Feature feat-13-zero-codegen-grid.md is missing section '### 1. Test Data Shape'.",
+      "Feature feat-13-zero-codegen-grid.md is missing section '### 3. Visual Layout & Arrangement'.",
+      "Feature feat-13-zero-codegen-grid.md is missing section '### 4. Interactive Flow & States'.",
+      "Feature feat-14-event-echo-guard.md is missing section '## UML Class Diagram'.",
+      "Feature feat-14-event-echo-guard.md is missing section '### 1. Test Data Shape'.",
+      "Feature feat-14-event-echo-guard.md is missing section '### 3. Visual Layout & Arrangement'.",
+      "Feature feat-14-event-echo-guard.md is missing section '### 4. Interactive Flow & States'.",
+      "Feature feat-12-yang-compiler.md is missing section '## UML Class Diagram'.",
+      "Feature feat-12-yang-compiler.md is missing section '### 1. Test Data Shape'.",
+      "Feature feat-12-yang-compiler.md is missing section '### 4. Interactive Flow & States'.",
+      "Use Case uc-03-remote-firestore-cloud.md contains a checklist item with a missing or non-absolute markdown link URL: '- [ ] #0 - Collaborative Console Updates (https://github.com/gintatkinson/digital-pipeline-repo/blob/master/docs/user-stories/us-03-collaborative-sync.md) (Verifies that operator actions are real-time broadcasted to other connected clients)'.",
+      "Use Case uc-03-remote-firestore-cloud.md contains a checklist item with a missing or non-absolute markdown link URL: '- [ ] #44 - Downstream Baseline Seeding and Compliance Framework (https://github.com/gintatkinson/digital-pipeline-repo/blob/master/docs/features/feat-44-downstream-baseline.md) (Establishes the concrete FirestoreRepositoryAdapter and compliance verification checks)'.",
+      "Use Case uc-04-equipment-telemetry-gnmi.md is missing '### Required User Stories' under Realization Matrix.",
+      "Use Case uc-04-equipment-telemetry-gnmi.md Realization Matrix contains no User Story checkboxes under '### Required User Stories'.",
+      "Use Case uc-04-equipment-telemetry-gnmi.md contains a checklist item with a missing or non-absolute markdown link URL: '- [ ] [Persistence Architecture Blueprint](docs/designs/persistence-architecture-blueprint.md) (Specifies gNMI/Protobuf repository adapter structure and Option 4 telemetry configuration)'.",
+      "Use Case uc-06-device-state-modification.md use case node 'DB' must be defined inside the system boundary subgraph 'System Boundary'.",
+      "Use Case uc-06-device-state-modification.md use case node 'DB' must use the Mermaid stadium/oval shape ('stadium').",
+      "Use Case uc-06-device-state-modification.md is missing '### Required User Stories' under Realization Matrix.",
+      "Use Case uc-06-device-state-modification.md Realization Matrix contains no User Story checkboxes under '### Required User Stories'.",
+      "Use Case uc-05-dynamic-telemetry-injection.md is missing '### Required User Stories' under Realization Matrix.",
+      "Use Case uc-05-dynamic-telemetry-injection.md Realization Matrix contains no User Story checkboxes under '### Required User Stories'.",
+      "Use Case uc-01-standalone-local-db.md is missing '### Required User Stories' under Realization Matrix.",
+      "Use Case uc-01-standalone-local-db.md Realization Matrix contains no User Story checkboxes under '### Required User Stories'.",
+      "Logical UI Compliance: Feature 'docs/features/feat-16-gpu-topology.md' contains geodetic/coordinate concepts but 'Target LUI Component' is N/A. Demanding mapping to a visual coordinate component (e.g. TopologyMap or TopographicalView).",
+      "Logical UI Compliance: Feature 'docs/features/feat-44-downstream-baseline.md' contains geodetic/coordinate concepts but 'Target LUI Component' is N/A. Demanding mapping to a visual coordinate component (e.g. TopologyMap or TopographicalView).",
+      "Logical UI Compliance: Feature 'docs/features/feat-11-topology-map.md' contains geodetic/coordinate concepts but 'Target LUI Component' is N/A. Demanding mapping to a visual coordinate component (e.g. TopologyMap or TopographicalView)."
+    ]
+  },
+  "reproduction_case": {
+    "target_file": "docs/features/feat-44-downstream-baseline.md",
+    "snippet_type": "markdown",
+    "snippet_content": "---\ntitle: \"Feature 44: Downstream Baseline Seeding and Compliance Framework\"\ntype: \"feature\"\ninterface_type: \"persistence\"\ngeneration_mode: \"subagent\"\nspec_source: \"Project Constitution\"\nissue_id: 44\n---\n\n# Feature 44: Downstream Baseline Seeding and Compliance Framework\n\n## UML Class Diagram\n```mermaid\nclassDiagram\n    class PersistenceBootstrap {\n        +initialize(config: Config)\n        +connectEmulator(host: String, port: Integer)\n    }\n    class AbstractRepository {\n        <<interface>>\n        +fetchNodes() List\n        +saveNode(node: Node)\n    }\n    class FirestoreRepositoryAdapter {\n        +db: FirestoreInstance\n        +fetchNodes() List\n        +saveNode(node: Node)\n    }\n    class SeedingManager {\n        +purgeDatabase()\n        +seedBaselineRecords(records: List)\n    }\n    class ComplianceValidator {\n        +validateSchema(schemaPath: String) Boolean\n        +verifyLiveConnection() Boolean\n    }\n\n    FirestoreRepositoryAdapter ..|> AbstractRepository : realizes\n    PersistenceBootstrap *-- SeedingManager : delegates\n    PersistenceBootstrap *-- ComplianceValidator : delegates\n    PersistenceBootstrap --> AbstractRepository : configures\n```\n\n## Interface Requirements\n\n### 1. Test Data Shape\n```json\n{\n  \"bootstrapConfig\": {\n    \"emulatorHost\": \"127.0.0.1\",\n    \"emulatorPort\": 8080,\n    \"projectId\": \"demo-local-topology\",\n    \"persistenceAdapter\": \"FirestoreRepositoryAdapter\"\n  },\n  \"baselineRecords\": [\n    {\n      \"id\": \"node-01\",\n      \"name\": \"Tokyo-Gateway-01\",\n      \"latitude\": 35.6762,\n      \"longitude\": 139.6503,\n      \"height\": 40.5,\n      \"status\": \"Active\"\n    }\n  ]\n}\n```\n\n### 2. Standalone Seeding & Initialization\n- **Automated Bootstrap**: At application startup, the bootstrapping mechanism reads the dynamic environment settings to resolve the active persistence adapter.\n- **Background Execution**: In the test profile, the local database/emulator must run in the background. The setup process executes a seeding script to inject initial node configurations.\n- **Offline Reliability**: The seeding and compliance validation must operate completely offline, using local emulator connections with no dependencies on cloud credentials.\n\n### 3. Compliance & Structural Validation\n- **Zero-Mocking Validation**: The runtime validation gate ensures that in-memory mock adapters are prohibited in live deployment contexts.\n- **Off-Thread Processing**: Data serialization and schema validation of seeded records are executed in a decoupled background context to avoid UI thread blocking.\n- **Coverage Checks**: Verification tools ensure that the baseline data conforms strictly to the schemas defined in the project configuration.\n\n### 4. Interactive Flow & States\n\n#### Scenario 1: Standalone Persistence Bootstrapping with Local Emulator\n- **Given** the persistence framework is initialized with a stack configuration pointing to a local database emulator on host \"127.0.0.1\" and port 8080.\n- **When** the application bootstrap sequence is executed.\n- **Then** the framework establishes a connection to the local emulator, registers the active persistence adapter, and verifies the repository interface is ready.\n\n#### Scenario 2: Bootstrap Fails on Unreachable Emulator\n- **Given** the persistence framework is configured to connect to a local database emulator on port 8080.\n- **When** the emulator service is offline and the application bootstrap sequence is triggered.\n- **Then** the framework catches the connection failure, raises a boot compliance error, and prevents the presentation layer from loading.\n\n#### Scenario 3: Automated Database Purge and Seeding\n- **Given** the migration manager is initialized and the local emulator contains legacy test records.\n- **When** the standalone seeding script is executed prior to runtime launch.\n- **Then** the manager purges all existing collection records, inserts the baseline node configuration records, and logs a successful seeding completion signal.\n\n#### Scenario 4: Enforcement of Zero-Mocking Compliance Gate\n- **Given** the application is compiled under a live persistence profile configuration.\n- **When** a component attempts to register an in-memory mock persistence repository adapter.\n- **Then** the dependency injection bootstrap gate rejects the registration and halts application initialization with a zero-mocking policy violation.\n\n#### Scenario 5: Data Model Schema Validation on Seeded Node Attributes\n- **Given** a baseline data model containing geographical coordinates is defined.\n- **When** the seeding manager attempts to write a record with a latitude of 95.0 (exceeding the standard limit of 90.0).\n- **Then** the database schema validation rejects the write, throws a validation constraint error, and aborts the migration sequence.\n\n---\n\n## Source References\n- **Project Constitution**: [constitution.md:L88-94](file:///Users/perkunas/digital-pipeline-repo/.pipeline/constitution.md#L88-L94) (Section 1.9 Zero-Mocking Live Persistence Mandate)\n- **Project Constitution**: [constitution.md:L196-203](file:///Users/perkunas/digital-pipeline-repo/.pipeline/constitution.md#L196-L203) (Section 3.7 Strict Planning Mode Gate)\n- **React Profile**: [react.md:L21-30](file:///Users/perkunas/digital-pipeline-repo/.pipeline/profiles/react.md#L21-L30) (Section 1 General Architecture & Platform Rules)\n- **React Profile**: [react.md:L36-44](file:///Users/perkunas/digital-pipeline-repo/.pipeline/profiles/react.md#L36-L44) (Section 2 Coding Standards & UI Patterns)\n"
+  }
+}
