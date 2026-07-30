@@ -182,6 +182,13 @@ class FieldDescriptor {
   /// [PropertyGrid.enabledFeatures]. When null the field always renders.
   final String? featureFlag;
 
+  /// Autocomplete suggestions for this field.
+  ///
+  /// When non-null and non-empty, and the field type is 'string', the UI
+  /// renders an [Autocomplete] widget instead of a plain text field.
+  /// The user can still type free-text values not in this list.
+  final List<String>? suggestions;
+
   const FieldDescriptor({
     required this.key,
     required this.label,
@@ -198,6 +205,7 @@ class FieldDescriptor {
     this.defaultValue,
     this.inputFormatters,
     this.featureFlag,
+    this.suggestions,
   });
 
   factory FieldDescriptor.fromMap(Map<String, dynamic> map) {
@@ -230,6 +238,9 @@ class FieldDescriptor {
           ? List<String>.from(map['input_formatters'] as List)
           : null,
       featureFlag: map['feature_flag']?.toString(),
+      suggestions: map['suggestions'] is List
+          ? List<String>.from(map['suggestions'] as List)
+          : null,
     );
   }
 
@@ -251,6 +262,7 @@ class FieldDescriptor {
     if (defaultValue != null) result['default_value'] = defaultValue;
     if (inputFormatters != null) result['input_formatters'] = inputFormatters;
     if (featureFlag != null) result['feature_flag'] = featureFlag;
+    if (suggestions != null) result['suggestions'] = suggestions;
     return result;
   }
 
@@ -272,7 +284,8 @@ class FieldDescriptor {
         _listEquals(other.enumDisplayNames, enumDisplayNames) &&
         other.defaultValue == defaultValue &&
         _listEquals(other.inputFormatters, inputFormatters) &&
-        other.featureFlag == featureFlag;
+        other.featureFlag == featureFlag &&
+        _listEquals(other.suggestions, suggestions);
   }
 
   @override
@@ -292,6 +305,7 @@ class FieldDescriptor {
         defaultValue,
         inputFormatters,
         featureFlag,
+        Object.hashAll(suggestions ?? []),
       );
 }
 

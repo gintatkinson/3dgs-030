@@ -648,6 +648,19 @@ class _PropertyGridState extends State<PropertyGrid> {
       );
     }
 
+    if (field.type == 'string' &&
+        field.suggestions != null &&
+        field.suggestions!.isNotEmpty) {
+      return _buildAutocompleteField(
+        field: field,
+        controller: _controllers[field.key]!,
+        suggestions: field.suggestions!,
+        errorText: _errors[field.key],
+        brandPrimary: brandPrimary,
+        panelOpacity: panelOpacity,
+      );
+    }
+
     if (field.type == 'enum') {
       final options = field.enumOptions ?? const [];
       final currentValue = committedData[field.key] ?? (options.isNotEmpty ? options.first : '');
@@ -775,6 +788,97 @@ class _PropertyGridState extends State<PropertyGrid> {
               ),
             ),
           ),
+        ),
+        if (errorText != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 4.0),
+            child: Text(
+              errorText,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _buildAutocompleteField({
+    required FieldDescriptor field,
+    required TextEditingController controller,
+    required List<String> suggestions,
+    String? errorText,
+    required Color brandPrimary,
+    required double panelOpacity,
+  }) {
+    final cs = Theme.of(context).colorScheme;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          field.label,
+          style: Theme.of(context).textTheme.labelSmall,
+        ),
+        SizedBox(height: widget.gapSize),
+        Autocomplete<String>(
+          initialValue: TextEditingValue(text: controller.text),
+          optionsBuilder: (TextEditingValue textEditingValue) {
+            if (textEditingValue.text.isEmpty) {
+              return suggestions;
+            }
+            return suggestions.where((option) => option
+                .toLowerCase()
+                .contains(textEditingValue.text.toLowerCase()));
+          },
+          onSelected: (String selection) {
+            controller.text = selection;
+          },
+          fieldViewBuilder: (
+            BuildContext context,
+            TextEditingController fieldController,
+            FocusNode fieldFocusNode,
+            VoidCallback onFieldSubmitted,
+          ) {
+            fieldController.addListener(() {
+              controller.text = fieldController.text;
+            });
+            fieldFocusNode.addListener(() {
+              if (_isDisposingFields) return;
+              final bool currentlyHasFocus = fieldFocusNode.hasFocus;
+              final bool previouslyHadFocus = _hadFocus[field.key] ?? false;
+              _hadFocus[field.key] = currentlyHasFocus;
+              if (previouslyHadFocus && !currentlyHasFocus) {
+                _triggerBlurSave(field.key, field);
+              }
+            });
+            return TextField(
+              controller: fieldController,
+              focusNode: fieldFocusNode,
+              style: Theme.of(context).textTheme.bodyMedium,
+              decoration: InputDecoration(
+                isDense: true,
+                contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 12.0, vertical: 10.0),
+                filled: true,
+                fillColor: cs.surface.withOpacity(panelOpacity),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: widget.inputBorderRadius,
+                  borderSide: BorderSide(
+                    color: errorText != null
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).dividerColor,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: widget.inputBorderRadius,
+                  borderSide: BorderSide(
+                    color: errorText != null
+                        ? Theme.of(context).colorScheme.error
+                        : brandPrimary,
+                    width: 1.5,
+                  ),
+                ),
+              ),
+            );
+          },
         ),
         if (errorText != null)
           Padding(

@@ -450,6 +450,91 @@ void main() {
     expect(find.text('Alternate Field'), findsNothing);
   });
 
+  testWidgets('field with suggestions renders Autocomplete widget',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      buildTestableWidget(
+        PropertyGrid(
+          activeView: 'root',
+          fields: const [
+            FieldDescriptor(
+              key: 'body',
+              label: 'Body',
+              type: 'string',
+              suggestions: ['earth', 'moon', 'mars'],
+            ),
+          ],
+        ),
+      ),
+    );
+
+    expect(find.byType(Autocomplete<String>), findsOneWidget);
+  });
+
+  testWidgets('field without suggestions renders TextField',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      buildTestableWidget(
+        PropertyGrid(
+          activeView: 'root',
+          fields: const [
+            FieldDescriptor(
+              key: 'name',
+              label: 'Name',
+              type: 'string',
+            ),
+          ],
+        ),
+      ),
+    );
+
+    expect(find.byType(TextField), findsOneWidget);
+    expect(find.byType(Autocomplete<String>), findsNothing);
+  });
+
+  testWidgets('free-text is accepted in autocomplete field',
+      (WidgetTester tester) async {
+    Map<String, dynamic>? savedData;
+
+    await tester.pumpWidget(
+      buildTestableWidget(
+        PropertyGrid(
+          activeView: 'root',
+          fields: const [
+            FieldDescriptor(
+              key: 'body',
+              label: 'Body',
+              type: 'string',
+              suggestions: ['earth', 'moon'],
+            ),
+          ],
+          onSave: (data) {
+            savedData = data;
+          },
+        ),
+      ),
+    );
+
+    final Finder autocompleteFinder = find.byType(Autocomplete<String>);
+    expect(autocompleteFinder, findsOneWidget);
+
+    final Finder textField = find.descendant(
+      of: autocompleteFinder,
+      matching: find.byType(TextField),
+    );
+    expect(textField, findsOneWidget);
+
+    await tester.enterText(textField, 'custom-body');
+    await tester.pumpAndSettle();
+
+    final TextField widget = tester.widget<TextField>(textField);
+    widget.focusNode!.unfocus();
+    await tester.pumpAndSettle();
+
+    expect(savedData, isNotNull);
+    expect(savedData!['body'], 'custom-body');
+  });
+
   testWidgets('field without featureFlag always renders',
       (WidgetTester tester) async {
     await tester.pumpWidget(

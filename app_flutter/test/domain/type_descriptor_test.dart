@@ -273,6 +273,97 @@ void main() {
       });
     });
 
+    group('suggestions', () {
+      test('preserves suggestions list when set', () {
+        final fd = FieldDescriptor(
+          key: 'body',
+          label: 'Body',
+          type: 'string',
+          suggestions: ['earth', 'moon', 'mars'],
+        );
+
+        expect(fd.suggestions, ['earth', 'moon', 'mars']);
+      });
+
+      test('defaults to null when not set', () {
+        final fd = FieldDescriptor(
+          key: 'body',
+          label: 'Body',
+          type: 'string',
+        );
+
+        expect(fd.suggestions, isNull);
+      });
+
+      test('fromMap parses suggestions from map', () {
+        final fd = FieldDescriptor.fromMap({
+          'key': 'body',
+          'label': 'Body',
+          'type': 'string',
+          'suggestions': ['earth', 'moon', 'mars'],
+        });
+
+        expect(fd.suggestions, ['earth', 'moon', 'mars']);
+      });
+
+      test('toMap includes suggestions when set', () {
+        final fd = FieldDescriptor(
+          key: 'body',
+          label: 'Body',
+          type: 'string',
+          suggestions: ['earth', 'moon'],
+        );
+
+        final map = fd.toMap();
+        expect(map['suggestions'], ['earth', 'moon']);
+      });
+
+      test('toMap omits suggestions when null', () {
+        final fd = FieldDescriptor(
+          key: 'body',
+          label: 'Body',
+          type: 'string',
+        );
+
+        final map = fd.toMap();
+        expect(map.containsKey('suggestions'), isFalse);
+      });
+
+      test('equality considers suggestions', () {
+        final a = FieldDescriptor(
+          key: 'body',
+          label: 'Body',
+          type: 'string',
+          suggestions: ['earth', 'moon'],
+        );
+        final b = FieldDescriptor(
+          key: 'body',
+          label: 'Body',
+          type: 'string',
+          suggestions: ['earth', 'moon'],
+        );
+
+        expect(a, equals(b));
+        expect(a.hashCode, equals(b.hashCode));
+      });
+
+      test('equality distinguishes null vs non-null suggestions', () {
+        final a = FieldDescriptor(
+          key: 'body',
+          label: 'Body',
+          type: 'string',
+          suggestions: ['earth'],
+        );
+        final b = FieldDescriptor(
+          key: 'body',
+          label: 'Body',
+          type: 'string',
+        );
+
+        expect(a, isNot(equals(b)));
+      });
+    });
+
     group('featureFlag', () {
       test('preserves featureFlag when set', () {
         final fd = FieldDescriptor(
