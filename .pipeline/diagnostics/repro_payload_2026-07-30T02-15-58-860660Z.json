@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-07-30T02:15:58.860660Z",
+  "tooling": {
+    "name": "parity_auditor",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "./skills/spec-orchestrator/scripts/verify_model_coverage.py --spec-only --allow-missing-specs",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/3dgs-030.git",
+    "commit_hash": "fd89ee8bdc00037e6d0dbb8dad22b6adc32ebe74"
+  },
+  "failure": {
+    "traceback": "",
+    "error_summary": [
+      "Feature feat-03-geographic-location.md class 'ReferenceFrame' method '[0..1]' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "[FEATURE] [feat-03-geographic-location.md] UML Class Diagram is missing class node 'Locations' for schema container path segment 'locations' in path 'nil:locations/location/geo-location'.",
+      "[FEATURE] [feat-04-rack-management.md] UML Class Diagram is missing class node 'Locations' for schema container path segment 'locations' in path 'nil:locations/racks/rack'.",
+      "[FEATURE] [feat-05-rack-location-details.md] UML Class Diagram is missing class node 'Locations' for schema container path segment 'locations' in path 'nil:locations/racks/rack/rack-location'.",
+      "[FEATURE] [feat-05-rack-location-details.md] UML Class Diagram is missing class node 'Racks' for schema container path segment 'racks' in path 'nil:locations/racks/rack/rack-location'.",
+      "Feature feat-02-physical-address.md contains a syntax conflict in classDiagram on line 10: '+String countryCode [0..1] (pattern: [A-Z]{2})'. Curly braces '{}' inside members/attributes are prohibited due to Mermaid parse errors. Use standard attribute notation or separate notes for constraints.",
+      "Feature feat-02-physical-address.md class 'PhysicalAddress' method '[0..1]' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "[FEATURE] [feat-02-physical-address.md] UML Class Diagram is missing class node 'Locations' for schema container path segment 'locations' in path 'nil:locations/location/physical-address'.",
+      "Epic epic-02-rack-inventory-management.md contains a UML Class Diagram with no relationships. Isolated classes are prohibited; you must illustrate containment/inheritance/choice composition.",
+      "Epic epic-02-rack-inventory-management.md contains class 'RackSubsystem' with zero relationships. Isolated classes are prohibited.",
+      "Epic epic-02-rack-inventory-management.md class 'RackSubsystem' method 'retrieveRacks' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Epic epic-02-rack-inventory-management.md class 'RackSubsystem' method 'retrieveRackById' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Epic epic-02-rack-inventory-management.md class 'RackSubsystem' method 'findRacksByLocation' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Epic epic-02-rack-inventory-management.md class 'RackSubsystem' method 'findChassisByRack' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Epic epic-02-rack-inventory-management.md subsystem component class 'RackSubsystem' is empty. Subsystem components must define at least one attribute or operation.",
+      "Epic epic-01-network-location-inventory.md contains a UML Class Diagram with no relationships. Isolated classes are prohibited; you must illustrate containment/inheritance/choice composition.",
+      "Epic epic-01-network-location-inventory.md contains class 'LocationSubsystem' with zero relationships. Isolated classes are prohibited.",
+      "Epic epic-01-network-location-inventory.md class 'LocationSubsystem' method 'retrieveLocations' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Epic epic-01-network-location-inventory.md class 'LocationSubsystem' method 'retrieveLocationById' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Epic epic-01-network-location-inventory.md class 'LocationSubsystem' method 'findChildLocations' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Epic epic-01-network-location-inventory.md class 'LocationSubsystem' method 'validateLocationUsability' is missing a multiplicity (e.g. [1], [0..1], [0..*]) in its return signature.",
+      "Epic epic-01-network-location-inventory.md subsystem component class 'LocationSubsystem' is empty. Subsystem components must define at least one attribute or operation."
+    ]
+  },
+  "reproduction_case": {
+    "target_file": "",
+    "snippet_type": "text",
+    "snippet_content": ""
+  }
+}

@@ -850,7 +850,13 @@ class UmlValidator(IValidator):
 
             if schema_containers:
                 classes_lower_map = {c.lower(): c for c in classes.keys()}
-                for path in schema_containers:
+                for sc_entry in schema_containers:
+                    if isinstance(sc_entry, dict):
+                        path = sc_entry.get("path", "")
+                    else:
+                        path = sc_entry
+                    if not path:
+                        continue
                     cleaned_path = re.sub(r"^[^:]+:", "", path)
                     segments = [s for s in cleaned_path.split("/") if s]
                     

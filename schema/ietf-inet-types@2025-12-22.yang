@@ -1,0 +1,76 @@
+module ietf-inet-types {
+  namespace "urn:ietf:params:xml:ns:yang:ietf-inet-types";
+  prefix inet;
+
+  organization
+    "IETF Network Modeling (NETMOD) Working Group";
+  contact
+    "WG Web:   <https://datatracker.ietf.org/wg/netmod/>
+     WG List:  <mailto:netmod@ietf.org>
+
+     Editor:   Jürgen Schönwälder
+               <mailto:jschoenwaelder@constructor.university>";
+  description
+    "This module contains a collection of generally useful derived
+     YANG data types for Internet addresses and related things.";
+
+  revision 2025-12-22 {
+    description
+      "This revision adds new data types: ip-address-and-prefix,
+       ipv4-address-and-prefix, ipv6-address-and-prefix, protocol-number,
+       upper-layer-protocol-number, host-name, email-address,
+       ip-address-link-local, ipv4-address-link-local, ipv6-address-link-local.";
+    reference "RFC 9911: Common YANG Data Types";
+  }
+  revision 2013-07-15 {
+    description "Added ip-address-no-zone, ipv4-address-no-zone, ipv6-address-no-zone.";
+    reference "RFC 6991: Common YANG Data Types";
+  }
+  revision 2010-09-24 {
+    description "Initial revision.";
+    reference "RFC 6021: Common YANG Data Types";
+  }
+
+  /* Protocol field types */
+  typedef ip-version {
+    type enumeration {
+      enum unknown { value 0; }
+      enum ipv4 { value 1; }
+      enum ipv6 { value 2; }
+    }
+    description "Version of the Internet Protocol.";
+  }
+
+  typedef dscp { type uint8 { range "0..63"; } }
+  typedef ipv6-flow-label { type uint32 { range "0..1048575"; } }
+  typedef port-number { type uint16 { range "0..65535"; } }
+  typedef protocol-number { type uint8; }
+  typedef upper-layer-protocol-number { type protocol-number; }
+  typedef as-number { type uint32; }
+
+  /* IP address types */
+  typedef ip-address { type union { type ipv4-address; type ipv6-address; } }
+  typedef ipv4-address { type string; }
+  typedef ipv6-address { type string; }
+  typedef ip-address-no-zone { type union { type ipv4-address-no-zone; type ipv6-address-no-zone; } }
+  typedef ipv4-address-no-zone { type ipv4-address; }
+  typedef ipv6-address-no-zone { type ipv6-address; }
+  typedef ip-address-link-local { type union { type ipv4-address-link-local; type ipv6-address-link-local; } }
+  typedef ipv4-address-link-local { type ipv4-address; }
+  typedef ipv6-address-link-local { type ipv6-address; }
+
+  /* IP prefix types */
+  typedef ip-prefix { type union { type ipv4-prefix; type ipv6-prefix; } }
+  typedef ipv4-prefix { type string; }
+  typedef ipv6-prefix { type string; }
+  typedef ip-address-and-prefix { type union { type ipv4-address-and-prefix; type ipv6-address-and-prefix; } }
+  typedef ipv4-address-and-prefix { type string; }
+  typedef ipv6-address-and-prefix { type string; }
+
+  /* Domain / host / URI types */
+  typedef domain-name { type string { length "1..253"; } }
+  typedef host-name { type domain-name { length "2..max"; } }
+  typedef host { type union { type ip-address; type host-name; } }
+  typedef uri { type string; }
+  typedef email-address { type string; }
+}
