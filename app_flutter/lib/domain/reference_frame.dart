@@ -12,8 +12,13 @@ class ReferenceFrame {
   factory ReferenceFrame.fromMap(Map<String, dynamic> map) {
     return ReferenceFrame(
       alternateSystem: map['alternate_system']?.toString(),
-      astronomicalBody: map['astronomical_body']?.toString(),
+      astronomicalBody: _normalizeBody(map['astronomical_body']?.toString()),
     );
+  }
+
+  static String? _normalizeBody(String? value) {
+    if (value == null) return null;
+    return value.toLowerCase();
   }
 
   Map<String, dynamic> toMap() {
