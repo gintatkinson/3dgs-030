@@ -90,8 +90,8 @@ graph TD
     OSS --- UC03
     OSS --- UC04
     OSS --- UC05
-    UC06 -. "<<extend>>" .-> UC01
-    UC07 -. "<<extend>>" .-> UC01
+    UC06 -. "extend" .-> UC01
+    UC07 -. "extend" .-> UC01
     SecAdmin((Security Administrator)) --- UC07
     LocSrc((Location Data Source)) --- UC04
 ```

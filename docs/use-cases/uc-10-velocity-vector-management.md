@@ -114,12 +114,12 @@ graph TD
     Tracker --- UC02
     Tracker --- UC03
     Tracker --- UC04
-    UC05 -. "<<extend>>" .-> UC02
-    UC05 -. "<<extend>>" .-> UC03
-    UC05 -. "<<extend>>" .-> UC04
-    UC06 -. "<<extend>>" .-> UC01
-    UC07 -. "<<extend>>" .-> UC06
-    UC08 -. "<<extend>>" .-> UC01
+    UC05 -. "extend" .-> UC02
+    UC05 -. "extend" .-> UC03
+    UC05 -. "extend" .-> UC04
+    UC06 -. "extend" .-> UC01
+    UC07 -. "extend" .-> UC06
+    UC08 -. "extend" .-> UC01
     Analytics((Motion Analytics Engine)) --- UC06
     Analytics --- UC07
     Geodetic((Geodetic Reference System)) --- UC02

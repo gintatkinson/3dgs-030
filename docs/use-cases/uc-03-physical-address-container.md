@@ -94,8 +94,8 @@ graph TD
     OSS((OSS Operator)) --- UC1
     OSS --- UC2
     OSS --- UC3
-    UC4 -. "<<extend>>" .-> UC2
-    UC5 -. "<<extend>>" .-> UC3
+    UC4 -. "extend" .-> UC2
+    UC5 -. "extend" .-> UC3
     NC((Network Controller)) --- UC1
 ```
 

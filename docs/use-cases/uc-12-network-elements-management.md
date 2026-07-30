@@ -127,11 +127,11 @@ graph TD
         UC_AuthNE([Authorize NE Subtree Access])
     end
     OSS_Op((Inventory OSS / Operator)) --- UC_ListNE
-    UC_ListNE -. "<<include>>" .-> UC_ClassifyType
-    UC_ListNE -. "<<include>>" .-> UC_TrackSW
-    UC_ListNE -. "<<include>>" .-> UC_AuthNE
-    UC_ListNE -. "<<extend>>" .-> UC_NonModular
-    UC_ListNE -. "<<extend>>" .-> UC_StableID
+    UC_ListNE -. "include" .-> UC_ClassifyType
+    UC_ListNE -. "include" .-> UC_TrackSW
+    UC_ListNE -. "include" .-> UC_AuthNE
+    UC_ListNE -. "extend" .-> UC_NonModular
+    UC_ListNE -. "extend" .-> UC_StableID
     UC_AuthNE --- NACM((NACM System))
 ```
 

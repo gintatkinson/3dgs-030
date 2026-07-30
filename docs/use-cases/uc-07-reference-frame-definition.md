@@ -105,8 +105,8 @@ graph TD
     Configurator((Location System Configurator)) --- UC01
     Configurator --- UC02
     Configurator --- UC03
-    UC04 -. "<<extend>>" .-> UC01
-    UC05 -. "<<extend>>" .-> UC02
+    UC04 -. "extend" .-> UC01
+    UC05 -. "extend" .-> UC02
     VirtArch((Virtual Environment Architect)) --- UC03
     NMS((Network Management System)) --- UC05
 ```

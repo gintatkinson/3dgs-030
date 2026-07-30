@@ -108,8 +108,8 @@ graph TD
     Orchestrator --- UC_Capacity
     Orchestrator --- UC_Remove
     Admin((Network Administrator)) --- UC_Manual
-    UC_Map -. "<<include>>" .-> UC_Validate
-    UC_Capacity -. "<<extend>>" .-> UC_Map
+    UC_Map -. "include" .-> UC_Validate
+    UC_Capacity -. "extend" .-> UC_Map
     NwController((Network Controller)) --- UC_Validate
     InvDb((Inventory Database)) --- UC_Validate
     TeTopo((TE Topology Model)) --- UC_Capacity

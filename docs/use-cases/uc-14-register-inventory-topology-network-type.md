@@ -81,8 +81,8 @@ graph TD
     end
     Orchestrator((Network Orchestrator)) --- UC_Reg
     Orchestrator --- UC_Filter
-    UC_Reg -. "<<include>>" .-> UC_Activate
-    UC_Reg -. "<<extend>>" .-> UC_Cascade
+    UC_Reg -. "include" .-> UC_Activate
+    UC_Reg -. "extend" .-> UC_Cascade
     NwController((Network Controller)) --- UC_Activate
     NwController --- UC_Cascade
 ```

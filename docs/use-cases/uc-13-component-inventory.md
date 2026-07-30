@@ -186,14 +186,14 @@ graph TD
         UC_Paginate([Paginate Large Component Lists])
     end
     Operator((Inventory OSS / Operator)) --- UC_ListComp
-    UC_ListComp -. "<<include>>" .-> UC_ClassComp
-    UC_ListComp -. "<<include>>" .-> UC_Hierarchy
-    UC_ListComp -. "<<include>>" .-> UC_AuthComp
-    UC_ListComp -. "<<extend>>" .-> UC_FRU
-    UC_ListComp -. "<<extend>>" .-> UC_Asset
-    UC_ListComp -. "<<extend>>" .-> UC_MultiChassis
-    UC_ListComp -. "<<extend>>" .-> UC_PortInv
-    UC_ListComp -. "<<extend>>" .-> UC_Paginate
+     UC_ListComp -. "include" .-> UC_ClassComp
+     UC_ListComp -. "include" .-> UC_Hierarchy
+     UC_ListComp -. "include" .-> UC_AuthComp
+     UC_ListComp -. "extend" .-> UC_FRU
+     UC_ListComp -. "extend" .-> UC_Asset
+     UC_ListComp -. "extend" .-> UC_MultiChassis
+     UC_ListComp -. "extend" .-> UC_PortInv
+     UC_ListComp -. "extend" .-> UC_Paginate
     UC_AuthComp --- NACM((NACM System))
     UC_Asset --- AssetSys((Asset Management System))
 ```
@@ -202,7 +202,7 @@ graph TD
 ```mermaid
 stateDiagram-v2
     [*] --> Idle
-    Idle --> RequestReceived : Client GET /ne=<id>/components
+    Idle --> RequestReceived : Client issues GET for NE components
     RequestReceived --> Authorizing : NACM check initiated
     Authorizing --> AccessDenied : NACM denies read
     Authorizing --> ValidatingTarget : NACM grants read, NE exists

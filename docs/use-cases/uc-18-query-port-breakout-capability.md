@@ -106,9 +106,9 @@ graph TD
     Planner((Capacity Planner)) --- UC_Query
     Planner --- UC_Compute
     LCManager((Lifecycle Manager)) --- UC_Track
-    UC_Query -. "<<include>>" .-> UC_Compute
-    UC_Track -. "<<extend>>" .-> UC_Query
-    UC_Query -. "<<include>>" .-> UC_Atomic
+    UC_Query -. "include" .-> UC_Compute
+    UC_Track -. "extend" .-> UC_Query
+    UC_Query -. "include" .-> UC_Atomic
     HwCtrl((Hardware Controller)) --- UC_Query
     NwController((Network Controller)) --- UC_Query
 ```

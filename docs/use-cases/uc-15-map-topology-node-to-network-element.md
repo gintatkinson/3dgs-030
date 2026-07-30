@@ -97,7 +97,7 @@ graph TD
     Orchestrator --- UC_Query
     Orchestrator --- UC_Remove
     Admin((Network Administrator)) --- UC_Manual
-    UC_Map -. "<<include>>" .-> UC_Validate
+    UC_Map -. "include" .-> UC_Validate
     NwController((Network Controller)) --- UC_Validate
     InvDb((Inventory Database)) --- UC_Validate
 ```

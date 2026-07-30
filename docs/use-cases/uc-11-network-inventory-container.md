@@ -88,9 +88,9 @@ graph TD
         UC_Augment([Process Augmented Containers])
     end
     OSS((Inventory OSS / Client)) --- UC_Root
-    UC_Root -. "<<include>>" .-> UC_Auth
-    UC_Root -. "<<extend>>" .-> UC_Paginate
-    UC_Root -. "<<extend>>" .-> UC_Augment
+    UC_Root -. "include" .-> UC_Auth
+    UC_Root -. "extend" .-> UC_Paginate
+    UC_Root -. "extend" .-> UC_Augment
     UC_Auth --- NACM((NACM System))
 ```
 

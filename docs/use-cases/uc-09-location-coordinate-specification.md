@@ -131,13 +131,13 @@ graph TD
     Provider((Location Data Provider)) --- UC01
     Provider --- UC02
     Provider --- UC03
-    UC04 -. "<<extend>>" .-> UC02
-    UC04 -. "<<extend>>" .-> UC03
-    UC05 -. "<<extend>>" .-> UC02
-    UC06 -. "<<extend>>" .-> UC02
-    UC07 -. "<<extend>>" .-> UC01
-    UC08 -. "<<extend>>" .-> UC02
-    UC09 -. "<<extend>>" .-> UC02
+    UC04 -. "extend" .-> UC02
+    UC04 -. "extend" .-> UC03
+    UC05 -. "extend" .-> UC02
+    UC06 -. "extend" .-> UC02
+    UC07 -. "extend" .-> UC01
+    UC08 -. "extend" .-> UC02
+    UC09 -. "extend" .-> UC02
     Interchange((Data Interchange System)) --- UC05
     WebLayer((Web Integration Layer)) --- UC06
     GIS((GIS Integration System)) --- UC07

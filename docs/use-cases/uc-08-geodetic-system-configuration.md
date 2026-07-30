@@ -107,8 +107,8 @@ graph TD
     Configurator --- UC02
     Configurator --- UC03
     Configurator --- UC04
-    UC05 -. "<<extend>>" .-> UC01
-    UC06 -. "<<include>>" .-> UC02
+    UC05 -. "extend" .-> UC01
+    UC06 -. "include" .-> UC02
     Validator((Standards Compliance Validator)) --- UC05
     IANA((IANA Registry Administrator)) --- UC06
 ```

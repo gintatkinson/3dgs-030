@@ -141,8 +141,8 @@ graph TD
     OSS --- UC3
     OSS --- UC4
     OSS --- UC5
-    UC6 -. "<<extend>>" .-> UC5
-    UC7 -. "<<extend>>" .-> UC3
+    UC6 -. "extend" .-> UC5
+    UC7 -. "extend" .-> UC3
     NC((Network Controller)) --- UC1
     GS((Geolocation Services)) --- UC2
 ```

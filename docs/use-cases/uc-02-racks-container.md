@@ -146,8 +146,8 @@ graph TD
     OSS --- UC3
     OSS --- UC4
     OSS --- UC5
-    UC6 -. "<<extend>>" .-> UC5
-    UC7 -. "<<extend>>" .-> UC2
+    UC6 -. "extend" .-> UC5
+    UC7 -. "extend" .-> UC2
     NC((Network Controller)) --- UC1
     NIS((Network Inventory System)) --- UC2
 ```

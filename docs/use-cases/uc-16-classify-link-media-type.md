@@ -105,7 +105,7 @@ graph TD
     Operator((Network Operator)) --- UC_Classify
     Operator --- UC_Fallback
     Operator --- UC_Remove
-    UC_Classify -. "<<include>>" .-> UC_Validate
+    UC_Classify -. "include" .-> UC_Validate
     NwController((Network Controller)) --- UC_Validate
     PassInv((Passive Network Inventory)) --- UC_Classify
     MwTopo((Microwave Topology)) --- UC_Classify
