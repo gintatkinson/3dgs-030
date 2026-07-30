@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-07-30T03:26:51.052549Z",
+  "tooling": {
+    "name": "parity_auditor",
+    "version": "1.0.0"
+  },
+  "context": {
+    "command": "./skills/spec-orchestrator/scripts/verify_model_coverage.py --spec-only --allow-missing-specs",
+    "exit_code": 1,
+    "downstream_repo": "https://github.com/gintatkinson/3dgs-030.git",
+    "commit_hash": "ac21f0b04e947e689156161017a848ec81260739"
+  },
+  "failure": {
+    "traceback": "",
+    "error_summary": [
+      "User Story us-12-track-velocity-vector.md sequence diagram lifeline 'tracker' specifies classifier 'VelocityTracker' which is not defined in any feature class diagram.",
+      "User Story us-16-map-gml-format.md sequence diagram lifeline 'gis' specifies classifier 'GmlFormatMapper' which is not defined in any feature class diagram.",
+      "User Story us-17-map-kml-format.md sequence diagram lifeline 'viz' specifies classifier 'KmlFormatMapper' which is not defined in any feature class diagram.",
+      "User Story us-15-map-w3c-geolocation-api.md sequence diagram lifeline 'mapper' specifies classifier 'W3CGeolocationMapper' which is not defined in any feature class diagram.",
+      "User Story us-21-derive-speed-heading.md sequence diagram lifeline 'calculator' specifies classifier 'SpeedHeadingCalculator' which is not defined in any feature class diagram.",
+      "User Story us-09-specify-ellipsoidal-coordinates.md sequence diagram lifeline 'provider' specifies classifier 'EllipsoidProvider' which is not defined in any feature class diagram.",
+      "User Story us-19-inherit-reference-frame.md sequence diagram lifeline 'hierarchy' specifies classifier 'HierarchyManager' which is not defined in any feature class diagram.",
+      "User Story us-10-specify-cartesian-coordinates.md sequence diagram lifeline 'provider' specifies classifier 'CartesianProvider' which is not defined in any feature class diagram.",
+      "User Story us-11-define-reference-frame.md sequence diagram lifeline 'configurator' specifies classifier 'ReferenceFrameConfigurator' which is not defined in any feature class diagram.",
+      "User Story us-13-use-alternate-reference-systems.md sequence diagram lifeline 'architect' specifies classifier 'AlternateSystemArchitect' which is not defined in any feature class diagram.",
+      "User Story us-18-validate-iso-6709-conformance.md sequence diagram lifeline 'validator' specifies classifier 'ConformanceValidator' which is not defined in any feature class diagram.",
+      "User Story us-14-map-geo-uri-format.md sequence diagram lifeline 'mapper' specifies classifier 'GeoUriMapper' which is not defined in any feature class diagram.",
+      "User Story us-22-enforce-coordinate-precision.md sequence diagram lifeline 'validator' specifies classifier 'PrecisionValidatorSystem' which is not defined in any feature class diagram.",
+      "User Story us-20-manage-temporal-validity.md sequence diagram lifeline 'lifecycle' specifies classifier 'TemporalLifecycleManager' which is not defined in any feature class diagram.",
+      "Use Case uc-08-geodetic-system-configuration.md must contain at least 9 detailed Alternate/Exception flows. Found only 3 flows. (Referenced features define 9 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)",
+      "Use Case uc-10-velocity-vector-management.md must contain at least 10 detailed Alternate/Exception flows. Found only 5 flows. (Referenced features define 10 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)",
+      "Use Case uc-07-reference-frame-definition.md must contain at least 9 detailed Alternate/Exception flows. Found only 3 flows. (Referenced features define 9 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)",
+      "Use Case uc-09-location-coordinate-specification.md must contain at least 13 detailed Alternate/Exception flows. Found only 5 flows. (Referenced features define 13 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)",
+      "Use Case uc-06-geo-location-management.md must contain at least 4 detailed Alternate/Exception flows. Found only 3 flows. (Referenced features define 4 schema validation constraints, requiring at least that many alternate flows, with a minimum floor of 2.)"
+    ]
+  },
+  "reproduction_case": {
+    "target_file": "",
+    "snippet_type": "text",
+    "snippet_content": ""
+  }
+}
