@@ -1,4 +1,5 @@
 ---
+issue_id: "78"
 title: "Report Port Breakout Capability for High-Density Ethernet Ports"
 type: "user-story"
 generation_mode: "subagent"

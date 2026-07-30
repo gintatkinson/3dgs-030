@@ -1,4 +1,5 @@
 ---
+issue_id: "86"
 title: "Register Inventory Topology Network Type"
 type: "use-case"
 generation_mode: "subagent"

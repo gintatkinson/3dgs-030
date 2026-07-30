@@ -1,4 +1,5 @@
 ---
+issue_id: "84"
 title: "Calculate Port Breakout Channel Capacity Allocation for Channelized Interfaces"
 type: "user-story"
 generation_mode: "subagent"

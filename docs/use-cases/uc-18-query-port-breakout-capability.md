@@ -1,4 +1,5 @@
 ---
+issue_id: "90"
 title: "Query Port Breakout Capability for Partition-Capable Physical Ports"
 type: "use-case"
 generation_mode: "subagent"

@@ -1,4 +1,5 @@
 ---
+issue_id: "75"
 title: "Map Topology Node to Network Element for Inventory Correlation"
 type: "user-story"
 generation_mode: "subagent"

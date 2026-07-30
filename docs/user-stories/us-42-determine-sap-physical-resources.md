@@ -1,4 +1,5 @@
 ---
+issue_id: "79"
 title: "Determine Service Attachment Point Physical Resources for Capacity Verification"
 type: "user-story"
 generation_mode: "subagent"

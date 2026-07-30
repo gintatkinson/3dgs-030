@@ -1,4 +1,5 @@
 ---
+issue_id: "85"
 title: "Track Port Breakout Hardware Capability Lifecycle Changes"
 type: "user-story"
 generation_mode: "subagent"

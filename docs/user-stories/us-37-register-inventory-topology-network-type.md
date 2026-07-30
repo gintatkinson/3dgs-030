@@ -1,4 +1,5 @@
 ---
+issue_id: "74"
 title: "Register Inventory Topology Network Type"
 type: "user-story"
 generation_mode: "subagent"

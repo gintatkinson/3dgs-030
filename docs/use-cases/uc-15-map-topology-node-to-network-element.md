@@ -1,4 +1,5 @@
 ---
+issue_id: "87"
 title: "Map Topology Node to Network Element for Physical Inventory Correlation"
 type: "use-case"
 generation_mode: "subagent"

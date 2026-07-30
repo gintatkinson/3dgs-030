@@ -1,4 +1,5 @@
 ---
+issue_id: "89"
 title: "Map Termination Point to Physical Port Component for Resource Location"
 type: "use-case"
 generation_mode: "subagent"

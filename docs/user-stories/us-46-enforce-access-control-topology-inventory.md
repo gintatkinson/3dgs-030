@@ -1,4 +1,5 @@
 ---
+issue_id: "83"
 title: "Enforce Access Control on Topology-Inventory Mapping Nodes"
 type: "user-story"
 generation_mode: "subagent"

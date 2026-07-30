@@ -1,4 +1,5 @@
 ---
+issue_id: "81"
 title: "Evaluate What-If Network Digital Twin Scenarios Using Inventory Topology"
 type: "user-story"
 generation_mode: "subagent"

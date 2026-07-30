@@ -1,4 +1,5 @@
 ---
+issue_id: "80"
 title: "Navigate Multi-Layer Network Topology Down to Physical Inventory Layer"
 type: "user-story"
 generation_mode: "subagent"

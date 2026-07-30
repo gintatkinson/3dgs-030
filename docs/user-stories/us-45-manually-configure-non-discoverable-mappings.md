@@ -1,4 +1,5 @@
 ---
+issue_id: "82"
 title: "Manually Configure NE and Port Mappings for Non-Discoverable Resources"
 type: "user-story"
 generation_mode: "subagent"

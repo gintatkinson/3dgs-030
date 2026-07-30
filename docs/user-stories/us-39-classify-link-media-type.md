@@ -1,4 +1,5 @@
 ---
+issue_id: "76"
 title: "Classify Link Media Type for Physical Media Discrimination"
 type: "user-story"
 generation_mode: "subagent"
