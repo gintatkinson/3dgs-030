@@ -39,9 +39,9 @@ classDiagram
     }
     GeoLocation *-- ReferenceFrame : referenceFrame
     ReferenceFrame *-- GeodeticSystem : geodeticSystem
-    note for ReferenceFrame "alternateSystem: <<feature_guard>> alternate-systems"
-    note for ReferenceFrame "astronomicalBody default: earth"
-    note for ReferenceFrame "astronomicalBody pattern: [ -@[-^_-~]*"
+    note for ReferenceFrame "alternateSystem - <<feature_guard>> alternate-systems"
+    note for ReferenceFrame "astronomicalBody default - earth"
+    note for ReferenceFrame "astronomicalBody pattern - [ -@[-^_-~]*"
     note for ReferenceFrame "config true (writable)"
 ```
 

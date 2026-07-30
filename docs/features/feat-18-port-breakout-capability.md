@@ -26,7 +26,7 @@ The `breakout-channel` list, keyed by `channel-id` (uint16), enumerates the inde
 classDiagram
     class Nw_networks {
     }
-    class Nw:network {
+    class Nw_network {
     }
     class Nw_node {
     }
@@ -38,16 +38,16 @@ classDiagram
     class BreakoutChannel {
         +Integer channelId [1]
     }
-    "Nw_networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nw_node" : node
+    "Nw_networks" *-- "Nw_network" : network
+    "Nw_network" *-- "Nw_node" : node
     "Nw_node" *-- "Nt_terminationPoint" : termination-point
     "Nt_terminationPoint" *-- PortBreakout : port-breakout
     PortBreakout *-- BreakoutChannel : breakout-channel
     note for PortBreakout "Presence indicates hardware supports port partitioning (e.g., 400G to 4x100G)"
-    note for PortBreakout "config false: hardware-determined state, not configurable"
+    note for PortBreakout "config false - hardware-determined state, not configurable"
     note for PortBreakout "Omitted entirely for non-breakout-capable ports"
-    note for BreakoutChannel "Atomic resource element: one physical interface may consume one or more channels"
-    note for BreakoutChannel "channel-id: uint16, unique within the parent port scope"
+    note for BreakoutChannel "Atomic resource element - one physical interface may consume one or more channels"
+    note for BreakoutChannel "channel-id - uint16, unique within the parent port scope"
 ```
 
 ## Interface Requirements

@@ -67,7 +67,7 @@ classDiagram
     LocationChoice <|-- Ellipsoid : ellipsoid
     LocationChoice <|-- Cartesian : cartesian
     GeoLocation *-- Velocity : velocity
-    note for ReferenceFrame "astronomicalBody default: earth"
+    note for ReferenceFrame "astronomicalBody default - earth"
     note for ReferenceFrame "alternateSystem guarded by if-feature alternate-systems"
 ```
 

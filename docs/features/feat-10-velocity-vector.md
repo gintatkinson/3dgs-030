@@ -43,9 +43,9 @@ classDiagram
     }
     GeoLocation *-- Velocity : velocity
     note for GeoLocation "config true (writable)"
-    note for Velocity "v-north: decimal64 fraction-digits 12, m/s"
-    note for Velocity "v-east: decimal64 fraction-digits 12, m/s"
-    note for Velocity "v-up: decimal64 fraction-digits 12, m/s"
+    note for Velocity "v-north - decimal64 fraction-digits 12, m/s"
+    note for Velocity "v-east - decimal64 fraction-digits 12, m/s"
+    note for Velocity "v-up - decimal64 fraction-digits 12, m/s"
     note for Velocity "speed = sqrt(v-north^2 + v-east^2)"
     note for Velocity "heading = arctan(v-east / v-north)"
     note for Velocity "config true (writable)"

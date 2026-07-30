@@ -45,14 +45,14 @@ classDiagram
         +Real z [0..1]
     }
     GeoLocation *-- Location : location
-    Location <|-- EllipsoidLocation : <<case>>
-    Location <|-- CartesianLocation : <<case>>
-    note for EllipsoidLocation "latitude: decimal64 fraction-digits 16, decimal degrees"
-    note for EllipsoidLocation "longitude: decimal64 fraction-digits 16, decimal degrees"
-    note for EllipsoidLocation "height: decimal64 fraction-digits 6, meters"
-    note for CartesianLocation "x: decimal64 fraction-digits 6, meters"
-    note for CartesianLocation "y: decimal64 fraction-digits 6, meters"
-    note for CartesianLocation "z: decimal64 fraction-digits 6, meters"
+    Location <|-- EllipsoidLocation  : case
+    Location <|-- CartesianLocation  : case
+    note for EllipsoidLocation "latitude - decimal64 fraction-digits 16, decimal degrees"
+    note for EllipsoidLocation "longitude - decimal64 fraction-digits 16, decimal degrees"
+    note for EllipsoidLocation "height - decimal64 fraction-digits 6, meters"
+    note for CartesianLocation "x - decimal64 fraction-digits 6, meters"
+    note for CartesianLocation "y - decimal64 fraction-digits 6, meters"
+    note for CartesianLocation "z - decimal64 fraction-digits 6, meters"
     note for Location "config true (writable)"
 ```
 

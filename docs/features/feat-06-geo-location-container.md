@@ -57,11 +57,11 @@ classDiagram
     GeoLocation *-- LocationChoice : location
     GeoLocation *-- Velocity : velocity
     ReferenceFrame *-- GeodeticSystem : geodeticSystem
-    LocationChoice <|-- EllipsoidLocation : <<case>>
-    LocationChoice <|-- CartesianLocation : <<case>>
+    LocationChoice <|-- EllipsoidLocation  : case
+    LocationChoice <|-- CartesianLocation  : case
     note for GeoLocation "config true (writable)"
-    note for GeoLocation "timestamp: ISO 8601 date-and-time"
-    note for GeoLocation "valid-until: if absent, no expiration"
+    note for GeoLocation "timestamp - ISO 8601 date-and-time"
+    note for GeoLocation "valid-until - if absent, no expiration"
 ```
 
 ## Interface Requirements

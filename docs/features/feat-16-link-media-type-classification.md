@@ -26,7 +26,7 @@ The container is conditioned on the network being of `inventory-topology` type v
 classDiagram
     class Nw_networks {
     }
-    class Nw:network {
+    class Nw_network {
     }
     class Nt_link {
     }
@@ -58,8 +58,8 @@ classDiagram
     class LeasedFiber {
         <<identity>>
     }
-    "Nw_networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nt_link" : link
+    "Nw_networks" *-- "Nw_network" : network
+    "Nw_network" *-- "Nt_link" : link
     "Nt_link" *-- InventoryMappingAttributes : inventory-mapping-attributes
     InventoryMappingAttributes ..> LinkType : link-type (identityref)
     LinkType <|-- Copper
@@ -71,7 +71,7 @@ classDiagram
     Fiber <|-- LeasedFiber
     note for InventoryMappingAttributes "Presence signals physical link at lowest underlay level"
     note for LinkType "Extensible base identity — specialized inventory models may define additional derived identities"
-    note for LeasedFiber "Derived from fiber: third-party link with limited visibility into physical attributes"
+    note for LeasedFiber "Derived from fiber - third-party link with limited visibility into physical attributes"
 ```
 
 ## Interface Requirements

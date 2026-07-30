@@ -39,10 +39,10 @@ classDiagram
     }
     GeoLocation *-- ReferenceFrame : referenceFrame
     ReferenceFrame *-- GeodeticSystem : geodeticSystem
-    note for GeodeticSystem "geodeticDatum pattern: [ -@[-^_-~]*"
-    note for GeodeticSystem "geodeticDatum default: wgs-84 (for earth)"
-    note for GeodeticSystem "coordAccuracy: decimal64 fraction-digits 6"
-    note for GeodeticSystem "heightAccuracy: decimal64 fraction-digits 6, units meters"
+    note for GeodeticSystem "geodeticDatum pattern - [ -@[-^_-~]*"
+    note for GeodeticSystem "geodeticDatum default - wgs-84 (for earth)"
+    note for GeodeticSystem "coordAccuracy - decimal64 fraction-digits 6"
+    note for GeodeticSystem "heightAccuracy - decimal64 fraction-digits 6, units meters"
     note for GeodeticSystem "config true (writable)"
 ```
 

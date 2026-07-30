@@ -37,7 +37,7 @@ classDiagram
     }
     Locations *-- Location : location
     Location *-- PhysicalAddress : physicalAddress
-    note for PhysicalAddress "countryCode pattern: two uppercase letters (ISO ALPHA-2)"
+    note for PhysicalAddress "countryCode pattern - two uppercase letters (ISO ALPHA-2)"
 ```
 
 ## Interface Requirements

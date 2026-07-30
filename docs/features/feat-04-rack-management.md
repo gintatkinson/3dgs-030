@@ -55,7 +55,7 @@ classDiagram
     Racks *-- Rack : rack
     Rack *-- RackContainedChassis : containedChassis
     Rack --> RackClassType : rackClass
-    note for RackClassType "identity hierarchy: rack-class-type, rack-standard, rack-secure-baseline, rack-secure-medium, rack-secure-high"
+    note for RackClassType "identity hierarchy - rack-class-type, rack-standard, rack-secure-baseline, rack-secure-medium, rack-secure-high"
 ```
 
 ## Interface Requirements
