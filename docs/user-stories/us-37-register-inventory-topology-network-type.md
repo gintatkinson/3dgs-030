@@ -12,7 +12,7 @@ spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 4"
 - [ ] #73 - [Network Inventory: Inventory Topology Mapping](https://github.com/gintatkinson/3dgs-030/blob/main/docs/epics/epic-06-inventory-topology-mapping.md) (the inventory-topology presence container is the gating condition for all physical-layer augmentations in this module)
 
 ## Domain Object Mapping
-- **Primary Domain Objects:** `InventoryTopology` (presence container under `nw:network-types`), `Nw:network` (augmented by `inventory-topology`), `Nw:networkTypes` (augmented container)
+- **Primary Domain Objects:** `InventoryTopology` (presence container under `nw:network-types`), `Nw:network` (augmented by `inventory-topology`), `Nw_networkTypes` (augmented container)
 - **Actor/Role:** Network Orchestrator (system or operator designating a network instance as a physical underlay topology with inventory mapping, port breakout, and link media classification capabilities)
 
 ## BDD Scenario (OOA/OOD Realization)

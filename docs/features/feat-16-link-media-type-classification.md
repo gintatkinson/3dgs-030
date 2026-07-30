@@ -24,11 +24,11 @@ The container is conditioned on the network being of `inventory-topology` type v
 
 ```mermaid
 classDiagram
-    class "Nw:networks" {
+    class "Nw_networks" {
     }
     class "Nw:network" {
     }
-    class "Nt:link" {
+    class "Nt_link" {
     }
     class InventoryMappingAttributes {
         +String linkType [0..1]
@@ -58,9 +58,9 @@ classDiagram
     class LeasedFiber {
         <<identity>>
     }
-    "Nw:networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nt:link" : link
-    "Nt:link" *-- InventoryMappingAttributes : inventory-mapping-attributes
+    "Nw_networks" *-- "Nw:network" : network
+    "Nw:network" *-- "Nt_link" : link
+    "Nt_link" *-- InventoryMappingAttributes : inventory-mapping-attributes
     InventoryMappingAttributes ..> LinkType : link-type (identityref)
     LinkType <|-- Copper
     LinkType <|-- Fiber

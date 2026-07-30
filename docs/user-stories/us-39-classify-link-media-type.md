@@ -12,7 +12,7 @@ spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 4.1 and Appen
 - [ ] #73 - [Network Inventory: Inventory Topology Mapping](https://github.com/gintatkinson/3dgs-030/blob/main/docs/epics/epic-06-inventory-topology-mapping.md) (the link-type identity hierarchy under link inventory-mapping-attributes is the media classification mechanism)
 
 ## Domain Object Mapping
-- **Primary Domain Objects:** `InventoryMappingAttributes` (presence container under `nt:link`), `link-type` (identityref leaf with base `LinkType`), `LinkType` (base identity), `Copper`, `Fiber`, `Coax`, `Microwave`, `Wlan`, `Unknown`, `LeasedFiber` (derived identities), `Nt:link` (augmented topology link)
+- **Primary Domain Objects:** `InventoryMappingAttributes` (presence container under `nt:link`), `link-type` (identityref leaf with base `LinkType`), `LinkType` (base identity), `Copper`, `Fiber`, `Coax`, `Microwave`, `Wlan`, `Unknown`, `LeasedFiber` (derived identities), `Nt_link` (augmented topology link)
 - **Actor/Role:** Network Operator (system or engineer classifying the physical media type of underlay links to guide consumers to the appropriate specialized inventory model)
 
 ## BDD Scenario (OOA/OOD Realization)

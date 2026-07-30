@@ -12,7 +12,7 @@ spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 3.2"
 - [ ] #73 - [Network Inventory: Inventory Topology Mapping](https://github.com/gintatkinson/3dgs-030/blob/main/docs/epics/epic-06-inventory-topology-mapping.md) (multi-layer navigation from logical layers down to physical inventory is enabled by the inventory-topology mapping augmentations)
 
 ## Domain Object Mapping
-- **Primary Domain Objects:** `Nw:network` (multi-layer topology instances), `Nw:networkTypes` (layer classification), `InventoryTopology` (physical underlay presence container), `InventoryMappingAttributes` (node and TP containers), `ne-ref` and `port-ref` (inventory references)
+- **Primary Domain Objects:** `Nw:network` (multi-layer topology instances), `Nw_networkTypes` (layer classification), `InventoryTopology` (physical underlay presence container), `InventoryMappingAttributes` (node and TP containers), `ne-ref` and `port-ref` (inventory references)
 - **Actor/Role:** Network Operator (system or engineer traversing from a logical network layer down through the topology hierarchy to the physical inventory layer for troubleshooting, capacity planning, or fault isolation)
 
 ## BDD Scenario (OOA/OOD Realization)

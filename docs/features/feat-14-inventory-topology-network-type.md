@@ -22,18 +22,18 @@ The `inventory-topology` container is a presence container augmenting the `netwo
 
 ```mermaid
 classDiagram
-    class "Nw:networks" {
+    class "Nw_networks" {
     }
     class "Nw:network" {
     }
-    class "Nw:networkTypes" {
+    class "Nw_networkTypes" {
     }
     class InventoryTopology {
         <<presence>>
     }
-    "Nw:networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nw:networkTypes" : network-types
-    "Nw:networkTypes" *-- InventoryTopology : inventory-topology
+    "Nw_networks" *-- "Nw:network" : network
+    "Nw:network" *-- "Nw_networkTypes" : network-types
+    "Nw_networkTypes" *-- InventoryTopology : inventory-topology
     note for InventoryTopology "Presence signals physical-layer topology with inventory mapping augmentations"
     note for InventoryTopology "When absent, child augmentations are not instantiated"
 ```

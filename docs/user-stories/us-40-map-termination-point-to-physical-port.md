@@ -12,7 +12,7 @@ spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 3.1"
 - [ ] #73 - [Network Inventory: Inventory Topology Mapping](https://github.com/gintatkinson/3dgs-030/blob/main/docs/epics/epic-06-inventory-topology-mapping.md) (the TP-to-port mapping under termination-point inventory-mapping-attributes enables physical resource location)
 
 ## Domain Object Mapping
-- **Primary Domain Objects:** `InventoryMappingAttributes` (presence container under `nt:termination-point`), `PortRef` (grouping with `ne-ref` and `port-ref` leafref), `Nt:terminationPoint` (augmented termination point), `component` (inventory port component)
+- **Primary Domain Objects:** `InventoryMappingAttributes` (presence container under `nt:termination-point`), `PortRef` (grouping with `ne-ref` and `port-ref` leafref), `Nt_terminationPoint` (augmented termination point), `component` (inventory port component)
 - **Actor/Role:** Service Orchestrator (system locating the physical port underlying a logical termination point to verify resource availability during service provisioning)
 
 ## BDD Scenario (OOA/OOD Realization)

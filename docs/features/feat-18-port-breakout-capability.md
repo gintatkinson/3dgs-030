@@ -24,13 +24,13 @@ The `breakout-channel` list, keyed by `channel-id` (uint16), enumerates the inde
 
 ```mermaid
 classDiagram
-    class "Nw:networks" {
+    class "Nw_networks" {
     }
     class "Nw:network" {
     }
-    class "Nw:node" {
+    class "Nw_node" {
     }
-    class "Nt:terminationPoint" {
+    class "Nt_terminationPoint" {
     }
     class PortBreakout {
         <<presence, config=false>>
@@ -38,10 +38,10 @@ classDiagram
     class BreakoutChannel {
         +Integer channelId [1]
     }
-    "Nw:networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nw:node" : node
-    "Nw:node" *-- "Nt:terminationPoint" : termination-point
-    "Nt:terminationPoint" *-- PortBreakout : port-breakout
+    "Nw_networks" *-- "Nw:network" : network
+    "Nw:network" *-- "Nw_node" : node
+    "Nw_node" *-- "Nt_terminationPoint" : termination-point
+    "Nt_terminationPoint" *-- PortBreakout : port-breakout
     PortBreakout *-- BreakoutChannel : breakout-channel
     note for PortBreakout "Presence indicates hardware supports port partitioning (e.g., 400G to 4x100G)"
     note for PortBreakout "config false: hardware-determined state, not configurable"

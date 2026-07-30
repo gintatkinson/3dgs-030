@@ -12,7 +12,7 @@ spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 4.2 and Appen
 - [ ] #73 - [Network Inventory: Inventory Topology Mapping](https://github.com/gintatkinson/3dgs-030/blob/main/docs/epics/epic-06-inventory-topology-mapping.md) (the port-breakout container under termination-point exposes hardware-determined channelization capability)
 
 ## Domain Object Mapping
-- **Primary Domain Objects:** `PortBreakout` (config false presence container under `nt:termination-point`), `BreakoutChannel` (list keyed by `channel-id`), `channel-id` (uint16 leaf), `Nt:terminationPoint` (augmented termination point)
+- **Primary Domain Objects:** `PortBreakout` (config false presence container under `nt:termination-point`), `BreakoutChannel` (list keyed by `channel-id`), `channel-id` (uint16 leaf), `Nt_terminationPoint` (augmented termination point)
 - **Actor/Role:** Capacity Planner (system or operator reading hardware-determined breakout capability to plan high-speed port partitioning configurations such as 400G to 4x100G)
 
 ## BDD Scenario (OOA/OOD Realization)

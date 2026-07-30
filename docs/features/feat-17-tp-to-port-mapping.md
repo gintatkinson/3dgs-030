@@ -24,13 +24,13 @@ The container is conditioned on the network being of `inventory-topology` type v
 
 ```mermaid
 classDiagram
-    class "Nw:networks" {
+    class "Nw_networks" {
     }
     class "Nw:network" {
     }
-    class "Nw:node" {
+    class "Nw_node" {
     }
-    class "Nt:terminationPoint" {
+    class "Nt_terminationPoint" {
     }
     class InventoryMappingAttributes {
         +String neRef [0..1]
@@ -41,10 +41,10 @@ classDiagram
         +String neRef [0..1]
         +String portRef [0..1]
     }
-    "Nw:networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nw:node" : node
-    "Nw:node" *-- "Nt:terminationPoint" : termination-point
-    "Nt:terminationPoint" *-- InventoryMappingAttributes : inventory-mapping-attributes
+    "Nw_networks" *-- "Nw:network" : network
+    "Nw:network" *-- "Nw_node" : node
+    "Nw_node" *-- "Nt_terminationPoint" : termination-point
+    "Nt_terminationPoint" *-- InventoryMappingAttributes : inventory-mapping-attributes
     InventoryMappingAttributes ..> PortRef : uses (nwi:port-ref)
     note for InventoryMappingAttributes "Presence signals physical TP mapped to a port component"
     note for InventoryMappingAttributes "port-ref: leafref to port component within parent NE"

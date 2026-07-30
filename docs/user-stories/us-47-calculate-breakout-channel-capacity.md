@@ -12,7 +12,7 @@ spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 4.2 and Appen
 - [ ] #73 - [Network Inventory: Inventory Topology Mapping](https://github.com/gintatkinson/3dgs-030/blob/main/docs/epics/epic-06-inventory-topology-mapping.md) (port breakout channel capacity calculation is a derived computation over the breakout-channel list)
 
 ## Domain Object Mapping
-- **Primary Domain Objects:** `PortBreakout` (config false presence container), `BreakoutChannel` (list keyed by `channel-id`), `channel-id` (uint16 leaf), `Nt:terminationPoint` (augmented termination point), `component` (physical port component with speed attribute)
+- **Primary Domain Objects:** `PortBreakout` (config false presence container), `BreakoutChannel` (list keyed by `channel-id`), `channel-id` (uint16 leaf), `Nt_terminationPoint` (augmented termination point), `component` (physical port component with speed attribute)
 - **Actor/Role:** Capacity Planner (system computing per-channel capacity, total aggregate capacity, and channel allocation ratios for breakout-capable ports to plan interface partitioning configurations)
 
 ## BDD Scenario (OOA/OOD Realization)

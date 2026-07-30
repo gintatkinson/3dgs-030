@@ -24,11 +24,11 @@ The container is conditioned on the network being of `inventory-topology` type v
 
 ```mermaid
 classDiagram
-    class "Nw:networks" {
+    class "Nw_networks" {
     }
     class "Nw:network" {
     }
-    class "Nw:node" {
+    class "Nw_node" {
     }
     class InventoryMappingAttributes {
         +String neRef [0..1]
@@ -37,9 +37,9 @@ classDiagram
         <<typedef>>
         +String neRef [1]
     }
-    "Nw:networks" *-- "Nw:network" : network
-    "Nw:network" *-- "Nw:node" : node
-    "Nw:node" *-- InventoryMappingAttributes : inventory-mapping-attributes
+    "Nw_networks" *-- "Nw:network" : network
+    "Nw:network" *-- "Nw_node" : node
+    "Nw_node" *-- InventoryMappingAttributes : inventory-mapping-attributes
     InventoryMappingAttributes ..> NeRef : type
     note for InventoryMappingAttributes "Presence signals physical node mapped to a network element"
     note for InventoryMappingAttributes "ne-ref: leafref to /nwi:network-inventory/nwi:network-elements/nwi:network-element/nwi:ne-id"
