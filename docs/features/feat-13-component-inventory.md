@@ -24,6 +24,34 @@ The identity `non-hardware-component-class` and the grouping `component-attribut
 
 
 
+## UML Class Diagram
+
+```mermaid
+classDiagram
+    class Component {
+        +String component-id
+        +String class
+        +String uuid
+        +String name
+        +String alias
+        +String description
+        +String mfg-name
+        +String product-name
+        +String hardware-rev
+        +String mfg-date
+        +String part-number
+        +String serial-number
+        +String asset-id
+        +Boolean is-fru
+    }
+    class SoftwareRev {
+        +String name
+        +String revision
+    }
+    Component *-- "*" SoftwareRev : software-rev
+    Component --> Component : parent
+```
+
 ## Interface Requirements
 
 ### 1. Test Data Shape

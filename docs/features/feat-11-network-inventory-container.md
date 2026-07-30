@@ -22,6 +22,18 @@ The `network-inventory` container is the root operational data node (`config fal
 
 
 
+## UML Class Diagram
+
+```mermaid
+classDiagram
+    class NetworkInventory {
+        +Boolean config = false
+    }
+    class NetworkElements {
+    }
+    NetworkInventory *-- NetworkElements : network-elements
+```
+
 ## Interface Requirements
 
 ### 1. Test Data Shape

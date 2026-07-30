@@ -24,6 +24,32 @@ The module also defines the `ne-ref` typedef (a leafref to `ne-id`) and three gr
 
 
 
+## UML Class Diagram
+
+```mermaid
+classDiagram
+    class NetworkElement {
+        +String ne-id
+        +String ne-type
+        +String uuid
+        +String name
+        +String alias
+        +String description
+        +String mfg-name
+        +String product-name
+        +String product-rev
+    }
+    class SoftwareRev {
+        +String name
+        +String revision
+    }
+    class Patch {
+        +String revision
+    }
+    NetworkElement *-- "*" SoftwareRev : software-rev
+    SoftwareRev *-- "*" Patch : patch
+```
+
 ## Interface Requirements
 
 ### 1. Test Data Shape
