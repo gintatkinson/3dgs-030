@@ -2,6 +2,7 @@
 title: "Report Port Breakout Capability for High-Density Ethernet Ports"
 type: "user-story"
 generation_mode: "subagent"
+issue_id: "78"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 4.2 and Appendix B"
 ---
 

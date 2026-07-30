@@ -2,6 +2,7 @@
 title: "Register Inventory Topology Network Type"
 type: "user-story"
 generation_mode: "subagent"
+issue_id: "74"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 4"
 ---
 

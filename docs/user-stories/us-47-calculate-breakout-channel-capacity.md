@@ -2,6 +2,7 @@
 title: "Calculate Port Breakout Channel Capacity Allocation for Channelized Interfaces"
 type: "user-story"
 generation_mode: "subagent"
+issue_id: "84"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 4.2 and Appendix B (Algorithmic Extraction)"
 ---
 

@@ -2,6 +2,7 @@
 title: "Map Topology Node to Network Element for Inventory Correlation"
 type: "user-story"
 generation_mode: "subagent"
+issue_id: "75"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 3.1"
 ---
 

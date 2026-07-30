@@ -2,6 +2,7 @@
 title: "Navigate Multi-Layer Network Topology Down to Physical Inventory Layer"
 type: "user-story"
 generation_mode: "subagent"
+issue_id: "80"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 3.2"
 ---
 

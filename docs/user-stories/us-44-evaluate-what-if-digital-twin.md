@@ -2,6 +2,7 @@
 title: "Evaluate What-If Network Digital Twin Scenarios Using Inventory Topology"
 type: "user-story"
 generation_mode: "subagent"
+issue_id: "81"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 3.3 (Algorithmic Extraction)"
 ---
 

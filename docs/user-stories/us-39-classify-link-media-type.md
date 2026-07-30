@@ -2,6 +2,7 @@
 title: "Classify Link Media Type for Physical Media Discrimination"
 type: "user-story"
 generation_mode: "subagent"
+issue_id: "76"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 4.1 and Appendix A"
 ---
 
