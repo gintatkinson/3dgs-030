@@ -73,6 +73,10 @@ class PropertyGrid extends StatefulWidget {
   /// Sections whose [FieldDescriptor.sectionLabel] does not match are dimmed.
   final String activeView;
 
+  /// Set of enabled feature flags. Fields with a non-null [FieldDescriptor.featureFlag]
+  /// are only rendered when their flag is present in this set.
+  final Set<String> enabledFeatures;
+
   /// Responsive breakpoint at which the layout switches from single-column to
   /// two-column grid. Defaults to 700.0.
   final double wideLayoutBreakpoint;
@@ -111,6 +115,7 @@ class PropertyGrid extends StatefulWidget {
     this.initialValues = const {},
     this.onSave,
     this.activeView = 'root',
+    this.enabledFeatures = const {},
     this.wideLayoutBreakpoint = 700.0,
     this.sectionPadding = const EdgeInsets.all(20.0),
     this.gapSize = 8.0,
@@ -153,6 +158,9 @@ class _PropertyGridState extends State<PropertyGrid> {
   /// committed immediately on selection change rather than on blur.
   void _initializeFields(List<FieldDescriptor> fields, Map<String, dynamic> nodeData) {
     for (final field in fields) {
+      if (field.featureFlag != null && !widget.enabledFeatures.contains(field.featureFlag)) {
+        continue;
+      }
       final val = nodeData[field.key];
       final text = val != null ? val.toString() : '';
       final controller = TextEditingController(text: text);
@@ -578,7 +586,8 @@ class _PropertyGridState extends State<PropertyGrid> {
   /// group renders an empty [Column] with no visible output.
   Widget _buildGroupFields(String group, bool isDark, double panelOpacity) {
     final groupFields = _fields
-        .where((field) => (field.sectionLabel ?? 'Other') == group)
+        .where((field) => (field.sectionLabel ?? 'Other') == group &&
+            (field.featureFlag == null || widget.enabledFeatures.contains(field.featureFlag)))
         .toList()
       ..sort((a, b) {
         final int cmp = a.sectionOrder.compareTo(b.sectionOrder);

@@ -272,5 +272,96 @@ void main() {
         expect(a, isNot(equals(b)));
       });
     });
+
+    group('featureFlag', () {
+      test('preserves featureFlag when set', () {
+        final fd = FieldDescriptor(
+          key: 'alt',
+          label: 'Alt',
+          type: 'string',
+          featureFlag: 'alternate-systems',
+        );
+
+        expect(fd.featureFlag, 'alternate-systems');
+      });
+
+      test('defaults to null when not set', () {
+        final fd = FieldDescriptor(
+          key: 'alt',
+          label: 'Alt',
+          type: 'string',
+        );
+
+        expect(fd.featureFlag, isNull);
+      });
+
+      test('fromMap parses feature_flag', () {
+        final fd = FieldDescriptor.fromMap({
+          'key': 'alt',
+          'label': 'Alt',
+          'type': 'string',
+          'feature_flag': 'alternate-systems',
+        });
+
+        expect(fd.featureFlag, 'alternate-systems');
+      });
+
+      test('toMap includes feature_flag when set', () {
+        final fd = FieldDescriptor(
+          key: 'alt',
+          label: 'Alt',
+          type: 'string',
+          featureFlag: 'alternate-systems',
+        );
+
+        final map = fd.toMap();
+        expect(map['feature_flag'], 'alternate-systems');
+      });
+
+      test('toMap omits feature_flag when null', () {
+        final fd = FieldDescriptor(
+          key: 'alt',
+          label: 'Alt',
+          type: 'string',
+        );
+
+        final map = fd.toMap();
+        expect(map.containsKey('feature_flag'), isFalse);
+      });
+
+      test('equality considers featureFlag', () {
+        final a = FieldDescriptor(
+          key: 'alt',
+          label: 'Alt',
+          type: 'string',
+          featureFlag: 'alternate-systems',
+        );
+        final b = FieldDescriptor(
+          key: 'alt',
+          label: 'Alt',
+          type: 'string',
+          featureFlag: 'alternate-systems',
+        );
+
+        expect(a, equals(b));
+        expect(a.hashCode, equals(b.hashCode));
+      });
+
+      test('equality distinguishes null vs non-null featureFlag', () {
+        final a = FieldDescriptor(
+          key: 'alt',
+          label: 'Alt',
+          type: 'string',
+          featureFlag: 'alternate-systems',
+        );
+        final b = FieldDescriptor(
+          key: 'alt',
+          label: 'Alt',
+          type: 'string',
+        );
+
+        expect(a, isNot(equals(b)));
+      });
+    });
   });
 }

@@ -405,4 +405,69 @@ void main() {
       findsOneWidget,
     );
   });
+
+  testWidgets('field with featureFlag renders when flag is enabled',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      buildTestableWidget(
+        PropertyGrid(
+          activeView: 'root',
+          enabledFeatures: const {'alternate-systems'},
+          fields: const [
+            FieldDescriptor(
+              key: 'alt',
+              label: 'Alternate Field',
+              type: 'string',
+              featureFlag: 'alternate-systems',
+            ),
+          ],
+        ),
+      ),
+    );
+
+    expect(find.text('Alternate Field'), findsOneWidget);
+  });
+
+  testWidgets('field with featureFlag is hidden when flag is not enabled',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      buildTestableWidget(
+        PropertyGrid(
+          activeView: 'root',
+          enabledFeatures: const {},
+          fields: const [
+            FieldDescriptor(
+              key: 'alt',
+              label: 'Alternate Field',
+              type: 'string',
+              featureFlag: 'alternate-systems',
+            ),
+          ],
+        ),
+      ),
+    );
+
+    expect(find.text('Alternate Field'), findsNothing);
+  });
+
+  testWidgets('field without featureFlag always renders',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      buildTestableWidget(
+        PropertyGrid(
+          activeView: 'root',
+          enabledFeatures: const {},
+          fields: const [
+            FieldDescriptor(
+              key: 'normal',
+              label: 'Normal Field',
+              type: 'string',
+            ),
+          ],
+        ),
+      ),
+    );
+
+    expect(find.text('Normal Field'), findsOneWidget);
+  });
 }

@@ -176,6 +176,12 @@ class FieldDescriptor {
   /// Unknown formatter names are silently ignored.
   final List<String>? inputFormatters;
 
+  /// Feature flag name for conditional rendering (YANG `if-feature`).
+  ///
+  /// When non-null, this field is only shown if the flag is present in
+  /// [PropertyGrid.enabledFeatures]. When null the field always renders.
+  final String? featureFlag;
+
   const FieldDescriptor({
     required this.key,
     required this.label,
@@ -191,6 +197,7 @@ class FieldDescriptor {
     this.enumDisplayNames,
     this.defaultValue,
     this.inputFormatters,
+    this.featureFlag,
   });
 
   factory FieldDescriptor.fromMap(Map<String, dynamic> map) {
@@ -222,6 +229,7 @@ class FieldDescriptor {
       inputFormatters: map['input_formatters'] is List
           ? List<String>.from(map['input_formatters'] as List)
           : null,
+      featureFlag: map['feature_flag']?.toString(),
     );
   }
 
@@ -242,6 +250,7 @@ class FieldDescriptor {
     if (enumDisplayNames != null) result['enum_display_names'] = enumDisplayNames;
     if (defaultValue != null) result['default_value'] = defaultValue;
     if (inputFormatters != null) result['input_formatters'] = inputFormatters;
+    if (featureFlag != null) result['feature_flag'] = featureFlag;
     return result;
   }
 
@@ -262,7 +271,8 @@ class FieldDescriptor {
         _listEquals(other.enumOptions, enumOptions) &&
         _listEquals(other.enumDisplayNames, enumDisplayNames) &&
         other.defaultValue == defaultValue &&
-        _listEquals(other.inputFormatters, inputFormatters);
+        _listEquals(other.inputFormatters, inputFormatters) &&
+        other.featureFlag == featureFlag;
   }
 
   @override
@@ -281,6 +291,7 @@ class FieldDescriptor {
         enumDisplayNames,
         defaultValue,
         inputFormatters,
+        featureFlag,
       );
 }
 
