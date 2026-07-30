@@ -28,77 +28,13 @@ The module is classified as FUNCTIONAL (contains concrete data nodes with config
 
 ### System-Level UML Class Diagram
 
-```mermaid
-classDiagram
-    class NetworkElementsManagement {
-        <<component>>
-        +String moduleName [1]
-        +Boolean retrieveInventory() [0..1]
-        +Boolean discoverNetworkElements() [0..1]
-        +Boolean resolveNeRef() [0..1]
-    }
-    class NetworkInventory {
-        <<config false>>
-    }
-    class NetworkElements {
-    }
-    class NetworkElement {
-        +String neId [1]
-        +String neType [0..1]
-        +String uuid [0..1]
-        +String name [0..1]
-        +String alias [0..1]
-        +String description [0..1]
-        +String mfgName [0..1]
-        +String productName [0..1]
-        +String productRev [0..1]
-    }
-    class SoftwareRev {
-        +String name [1]
-        +String revision [0..1]
-    }
-    class Patch {
-        +String revision [1]
-    }
-    class NeType {
-        <<identity>>
-    }
-    class NePhysical {
-        <<identity>>
-    }
-    class NeRef {
-        <<typedef, leafref>>
-    }
-    NetworkElementsManagement *-- NetworkInventory
-    NetworkInventory *-- NetworkElements
-    NetworkElements *-- NetworkElement
-    NetworkElement *-- SoftwareRev
-    SoftwareRev *-- Patch
-    NeType <|-- NePhysical : base
-    NetworkElement ..> NeType : ne-type identityref
-    NetworkElement ..> NeRef : referenced by
-    note for NetworkInventory "config false (read-only operational state)"
-    note for NetworkElement "default ne-type: nwi:ne-physical"
-    note for NeRef "leafref to ne-id with require-instance false"
-```
+
 
 ### State Machine Definitions
 
 ### System State Machine Diagram
 
-```mermaid
-stateDiagram-v2
-    [*] --> Idle
-    Idle --> Fetching : retrieveInventory()
-    Fetching --> Populated : data received
-    Fetching --> Error : retrieval failed
-    Populated --> Fetching : refresh request
-    Error --> Fetching : retry
-    Populated --> [*]
-    Error --> [*]
-    note right of Populated : NE list fully rendered in TableView and resource_tree
-    note right of Error : Error banner displayed with retry action
-```
+
 
 ## 4. Operational Considerations
 

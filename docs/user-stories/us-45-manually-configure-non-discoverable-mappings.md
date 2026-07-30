@@ -2,7 +2,6 @@
 title: "Manually Configure NE and Port Mappings for Non-Discoverable Resources"
 type: "user-story"
 generation_mode: "subagent"
-issue_id: "82"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 6"
 ---
 

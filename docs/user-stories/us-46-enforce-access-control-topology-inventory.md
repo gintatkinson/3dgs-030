@@ -2,7 +2,6 @@
 title: "Enforce Access Control on Topology-Inventory Mapping Nodes"
 type: "user-story"
 generation_mode: "subagent"
-issue_id: "83"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 7"
 ---
 

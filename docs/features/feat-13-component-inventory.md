@@ -22,49 +22,7 @@ The identity `non-hardware-component-class` and the grouping `component-attribut
 
 ## UML Class Diagram
 
-```mermaid
-classDiagram
-    class Components {
-    }
-    class Component {
-        +String componentId [1]
-        +String class [1]
-        +String uuid [0..1]
-        +String name [0..1]
-        +String alias [0..1]
-        +String description [0..1]
-        +String softwareRev [0..*]
-        +String mfgName [0..1]
-        +String productName [0..1]
-        +String hardwareRev [0..1]
-        +String mfgDate [0..1]
-        +String partNumber [0..1]
-        +String serialNumber [0..1]
-        +String assetId [0..1]
-        +Boolean isFru [0..1]
-        +String uri [0..*]
-        +String parent [0..*]
-        +String parentRelPos [0..1]
-        +Boolean isMain [0..1]
-    }
-    class NonHardwareComponentClass {
-        <<identity>>
-        +String id [1]
-    }
-    class ComponentAttributes {
-        <<grouping>>
-        +String componentId [1]
-        +String class [1]
-    }
-    Components *-- Component : component
-    Component --> Component : parent (self-referencing)
-    Component ..> NonHardwareComponentClass : class union member
-    Component ..> ComponentAttributes : uses
-    note for Component "class: union of ianahw:hardware-class and nwi:non-hardware-component-class"
-    note for Component "class is mandatory"
-    note for Component "parent-rel-pos: valid only when count(parent) < 2"
-    note for Component "is-main: valid only when class derives from ianahw:chassis"
-```
+
 
 ## Interface Requirements
 

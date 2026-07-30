@@ -1,7 +1,6 @@
 ---
 title: "Map Termination Point to Physical Port Component for Resource Location"
 type: "use-case"
-issue_id: "89"
 generation_mode: "subagent"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08"
 schema_containers:

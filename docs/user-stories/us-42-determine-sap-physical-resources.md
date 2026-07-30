@@ -2,7 +2,6 @@
 title: "Determine Service Attachment Point Physical Resources for Capacity Verification"
 type: "user-story"
 generation_mode: "subagent"
-issue_id: "79"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 3.1 (Algorithmic Extraction)"
 ---
 

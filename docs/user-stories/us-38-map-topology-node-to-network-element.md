@@ -2,7 +2,6 @@
 title: "Map Topology Node to Network Element for Inventory Correlation"
 type: "user-story"
 generation_mode: "subagent"
-issue_id: "75"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 3.1"
 ---
 
@@ -12,7 +11,7 @@ spec_source: "draft-ietf-ivy-network-inventory-topology-08 Section 3.1"
 - [ ] #73 - [Network Inventory: Inventory Topology Mapping](https://github.com/gintatkinson/3dgs-030/blob/main/docs/epics/epic-06-inventory-topology-mapping.md) (the node-to-NE mapping under inventory-mapping-attributes is a core augmentation establishing physical-to-logical correlation)
 
 ## Domain Object Mapping
-- **Primary Domain Objects:** `InventoryMappingAttributes` (presence container under `nw:node`), `ne-ref` (leafref to `nwi:ne-id`), `Nw_node` (augmented topology node), `network-element` (inventory NE list entry)
+- **Primary Domain Objects:** `InventoryMappingAttributes` (presence container under `nw:node`), `ne-ref` (leafref to `nwi:ne-id`), `Nw:node` (augmented topology node), `network-element` (inventory NE list entry)
 - **Actor/Role:** Service Orchestrator (system performing service provisioning that requires locating the physical NE underlying a logical topology node to verify resource availability)
 
 ## BDD Scenario (OOA/OOD Realization)

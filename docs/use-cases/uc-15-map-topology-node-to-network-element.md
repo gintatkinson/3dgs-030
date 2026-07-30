@@ -1,7 +1,6 @@
 ---
 title: "Map Topology Node to Network Element for Physical Inventory Correlation"
 type: "use-case"
-issue_id: "87"
 generation_mode: "subagent"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08"
 schema_containers:

@@ -1,7 +1,6 @@
 ---
 title: "Register Inventory Topology Network Type"
 type: "use-case"
-issue_id: "86"
 generation_mode: "subagent"
 spec_source: "draft-ietf-ivy-network-inventory-topology-08"
 schema_containers:

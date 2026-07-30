@@ -24,13 +24,13 @@ The `breakout-channel` list, keyed by `channel-id` (uint16), enumerates the inde
 
 ```mermaid
 classDiagram
-    class "Nw_networks" {
+    class Nw_networks {
     }
-    class "Nw:network" {
+    class Nw:network {
     }
-    class "Nw_node" {
+    class Nw_node {
     }
-    class "Nt_terminationPoint" {
+    class Nt_terminationPoint {
     }
     class PortBreakout {
         <<presence, config=false>>

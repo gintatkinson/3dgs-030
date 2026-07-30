@@ -27,83 +27,13 @@ The identity `non-hardware-component-class` and the grouping `component-attribut
 
 ### System-Level UML Class Diagram
 
-```mermaid
-classDiagram
-    class ComponentInventory {
-        <<component>>
-        +String moduleName [1]
-        +Boolean retrieveComponents() [0..1]
-        +Boolean resolveComponentHierarchy() [0..1]
-        +Boolean validateComponentClass() [0..1]
-    }
-    class Components {
-    }
-    class Component {
-        +String componentId [1]
-        +String class [1]
-        +String uuid [0..1]
-        +String name [0..1]
-        +String alias [0..1]
-        +String description [0..1]
-        +String mfgName [0..1]
-        +String productName [0..1]
-        +String hardwareRev [0..1]
-        +String mfgDate [0..1]
-        +String partNumber [0..1]
-        +String serialNumber [0..1]
-        +String assetId [0..1]
-        +Boolean isFru [0..1]
-        +String uri [0..*]
-        +String parent [0..*]
-        +String parentRelPos [0..1]
-        +Boolean isMain [0..1]
-    }
-    class SoftwareRev {
-        +String name [1]
-        +String revision [0..1]
-    }
-    class Patch {
-        +String revision [1]
-    }
-    class NonHardwareComponentClass {
-        <<identity>>
-    }
-    class HardwareClass {
-        <<identity, ianahw>>
-    }
-    ComponentInventory *-- Components
-    Components *-- Component
-    Component *-- SoftwareRev
-    SoftwareRev *-- Patch
-    Component --> Component : parent (self-reference)
-    Component ..> NonHardwareComponentClass : class union member
-    Component ..> HardwareClass : class union member
-    note for Component "class is mandatory (union of hardware and non-hardware identities)"
-    note for Component "parent-rel-pos: only valid when count(parent) < 2"
-    note for Component "is-main: only valid when class derived from ianahw:chassis"
-```
+
 
 ### State Machine Definitions
 
 ### System State Machine Diagram
 
-```mermaid
-stateDiagram-v2
-    [*] --> Idle
-    Idle --> Fetching : retrieveComponents(NE)
-    Fetching --> Populated : data received
-    Fetching --> Error : retrieval failed
-    Populated --> Fetching : refresh or NE changed
-    Error --> Fetching : retry
-    Populated --> ComponentSelected : user selects component
-    ComponentSelected --> Populated : deselect
-    ComponentSelected --> Error : detail load failed
-    Populated --> [*]
-    Error --> [*]
-    note right of Populated : Component list rendered in TableView (elements_view)
-    note right of ComponentSelected : PropertyGrid (properties_view) shows full component details
-    note right of ComponentSelected : Conditional fields (parent-rel-pos, is-main) shown/hidden per when guards
-```
+
 
 ## 4. Operational Considerations
 

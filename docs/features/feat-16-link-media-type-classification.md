@@ -24,11 +24,11 @@ The container is conditioned on the network being of `inventory-topology` type v
 
 ```mermaid
 classDiagram
-    class "Nw_networks" {
+    class Nw_networks {
     }
-    class "Nw:network" {
+    class Nw:network {
     }
-    class "Nt_link" {
+    class Nt_link {
     }
     class InventoryMappingAttributes {
         +String linkType [0..1]

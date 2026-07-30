@@ -22,61 +22,7 @@ The module also defines the `ne-ref` typedef (a leafref to `ne-id`) and three gr
 
 ## UML Class Diagram
 
-```mermaid
-classDiagram
-    class NetworkElements {
-    }
-    class NetworkElement {
-        +String neId [1]
-        +String neType [0..1]
-        +String uuid [0..1]
-        +String name [0..1]
-        +String alias [0..1]
-        +String description [0..1]
-        +String mfgName [0..1]
-        +String productName [0..1]
-        +String productRev [0..1]
-    }
-    class SoftwareRev {
-        +String name [1]
-        +String revision [0..1]
-    }
-    class Patch {
-        +String revision [1]
-    }
-    class NeType {
-        <<identity>>
-        +String id [1]
-    }
-    class NePhysical {
-        <<identity>>
-        +String id [1]
-    }
-    class NeRef {
-        <<typedef, leafref>>
-        +String path [1]
-    }
-    class BasicCommonEntityAttributes {
-        <<grouping>>
-        +String uuid [0..1]
-        +String name [0..1]
-        +String alias [0..1]
-        +String description [0..1]
-    }
-    class NeComponentCommonEntityAttributes {
-        <<grouping>>
-    }
-    NetworkElements *-- NetworkElement : networkElement
-    NetworkElement *-- SoftwareRev : softwareRev
-    SoftwareRev *-- Patch : patch
-    NeType <|-- NePhysical : "base"
-    NeComponentCommonEntityAttributes --|> BasicCommonEntityAttributes : uses
-    NetworkElement ..> NeComponentCommonEntityAttributes : uses
-    NetworkElement ..> NeType : ne-type identityref
-    note for NetworkElement "default ne-type: nwi:ne-physical"
-    note for NeRef "leafref: /nwi:network-inventory/nwi:network-elements/nwi:network-element/nwi:ne-id"
-    note for NeRef "require-instance false"
-```
+
 
 ## Interface Requirements
 

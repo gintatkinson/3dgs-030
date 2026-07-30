@@ -22,11 +22,11 @@ The `inventory-topology` container is a presence container augmenting the `netwo
 
 ```mermaid
 classDiagram
-    class "Nw_networks" {
+    class Nw_networks {
     }
-    class "Nw:network" {
+    class Nw:network {
     }
-    class "Nw_networkTypes" {
+    class Nw_networkTypes {
     }
     class InventoryTopology {
         <<presence>>

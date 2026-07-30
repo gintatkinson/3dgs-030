@@ -20,18 +20,7 @@ The `network-inventory` container is the root operational data node (`config fal
 
 ## UML Class Diagram
 
-```mermaid
-classDiagram
-    class NetworkInventory {
-        <<config false>>
-    }
-    class NetworkElements {
-        +String neId [0..*]
-    }
-    NetworkInventory *-- NetworkElements : networkElements
-    note for NetworkInventory "config false (read-only operational state)"
-    note for NetworkInventory "Top-level extension point for future inventory object types"
-```
+
 
 ## Interface Requirements
 
