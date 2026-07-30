@@ -95,14 +95,12 @@ A Geodetic System Configurator specifies or overrides the geodetic datum, coordi
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph System["Geodetic System Management"]
         UC01([Configure Geodetic System])
         UC02([Set Geodetic Datum])
         UC03([Override Coordinate Accuracy])
         UC04([Override Height Accuracy])
         UC05([Validate ISO 6709 Conformance])
         UC06([Query IANA Registry])
-    end
     Configurator((Geodetic System Configurator)) --- UC01
     Configurator --- UC02
     Configurator --- UC03

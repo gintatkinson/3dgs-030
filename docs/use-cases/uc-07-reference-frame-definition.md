@@ -95,13 +95,11 @@ A Location System Configurator initiates configuration of the astronomical body 
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph System["Reference Frame Management System"]
         UC01([Define Frame of Reference])
         UC02([Set Astronomical Body])
         UC03([Enable Alternate System])
         UC04([Inherit Reference Frame])
         UC05([Validate Body Name Pattern])
-    end
     Configurator((Location System Configurator)) --- UC01
     Configurator --- UC02
     Configurator --- UC03

@@ -76,7 +76,6 @@ An OSS/Network Management System initiates a request to create, read, update, or
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph System["Geo-Location Management System"]
         UC01([Manage Geo-Location Lifecycle])
         UC02([Configure Reference Frame])
         UC03([Configure Geodetic System])
@@ -84,7 +83,6 @@ graph TD
         UC05([Track Velocity Vector])
         UC06([Validate Temporal Validity])
         UC07([Enforce Access Control])
-    end
     OSS((OSS/NMS Operator)) --- UC01
     OSS --- UC02
     OSS --- UC03

@@ -86,13 +86,11 @@ The Service Orchestrator sets the `ne-ref` leaf within the `inventory-mapping-at
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "System Boundary: Network Node Inventory Mapping Controller"
         UC_Map([Map Node to Network Element])
         UC_Validate([Validate NE Referential Integrity])
         UC_Query([Query Node-to-NE Mapping])
         UC_Manual([Manually Configure Non-Discoverable Mapping])
         UC_Remove([Disassociate Node from NE])
-    end
     Orchestrator((Service Orchestrator)) --- UC_Map
     Orchestrator --- UC_Query
     Orchestrator --- UC_Remove

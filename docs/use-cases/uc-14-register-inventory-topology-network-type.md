@@ -73,12 +73,10 @@ The Network Orchestrator creates a network instance (via NETCONF edit-config or 
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "System Boundary: Inventory Topology Network Controller"
         UC_Reg([Register Inventory-Topology Network Type])
         UC_Activate([Activate Inventory-Mapping Child Augmentations])
         UC_Filter([Filter Query by Network Type])
         UC_Cascade([Cascade Deletion to Children])
-    end
     Orchestrator((Network Orchestrator)) --- UC_Reg
     Orchestrator --- UC_Filter
     UC_Reg -. "include" .-> UC_Activate

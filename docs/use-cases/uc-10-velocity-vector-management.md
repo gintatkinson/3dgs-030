@@ -100,7 +100,6 @@ A Motion Tracking System records the three-dimensional velocity of a locatable o
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph System["Velocity Vector Management System"]
         UC01([Track Velocity Vector])
         UC02([Record V-North Component])
         UC03([Record V-East Component])
@@ -109,7 +108,6 @@ graph TD
         UC06([Derive Speed and Heading])
         UC07([Handle Zero V-North Edge Case])
         UC08([Track Continental Drift])
-    end
     Tracker((Motion Tracking System)) --- UC01
     Tracker --- UC02
     Tracker --- UC03

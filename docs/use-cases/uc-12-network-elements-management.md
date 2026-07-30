@@ -118,14 +118,12 @@ A northbound client (OSS, hierarchical controller) sends a read request (NETCONF
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "System Boundary: Network Inventory Controller"
         UC_ListNE([List Network Elements])
         UC_ClassifyType([Classify NE Type via Identity])
         UC_TrackSW([Track Software Revisions and Patches])
         UC_NonModular([Handle Non-Modular NE])
         UC_StableID([Ensure Stable NE Identifier])
         UC_AuthNE([Authorize NE Subtree Access])
-    end
     OSS_Op((Inventory OSS / Operator)) --- UC_ListNE
     UC_ListNE -. "include" .-> UC_ClassifyType
     UC_ListNE -. "include" .-> UC_TrackSW

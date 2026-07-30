@@ -97,13 +97,11 @@ The Service Orchestrator sets `ne-ref` and `port-ref` within the `inventory-mapp
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "System Boundary: Termination Point Port Mapping Controller"
         UC_Map([Map TP to Physical Port Component])
         UC_Validate([Validate Port-ref Referential Integrity])
         UC_Capacity([Verify SAP Physical Port Capacity])
         UC_Manual([Manually Configure Non-Discoverable TP])
         UC_Remove([Disassociate TP from Port])
-    end
     Orchestrator((Service Orchestrator)) --- UC_Map
     Orchestrator --- UC_Capacity
     Orchestrator --- UC_Remove

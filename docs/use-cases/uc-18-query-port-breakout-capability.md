@@ -97,12 +97,10 @@ The Capacity Planner queries the `port-breakout` container for a termination poi
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "System Boundary: Port Breakout Capability Controller"
         UC_Query([Query Port Breakout Channels])
         UC_Compute([Compute Channel Capacity Allocation])
         UC_Track([Track Breakout Capability Lifecycle])
         UC_Atomic([Enforce Channel Atomicity])
-    end
     Planner((Capacity Planner)) --- UC_Query
     Planner --- UC_Compute
     LCManager((Lifecycle Manager)) --- UC_Track

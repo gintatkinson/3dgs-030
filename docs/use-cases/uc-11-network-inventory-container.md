@@ -81,12 +81,10 @@ A northbound application, hierarchical controller, or Inventory OSS issues a `<g
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "System Boundary: Network Inventory Controller"
         UC_Root([Retrieve Root Inventory Container])
         UC_Auth([Authorize NACM Access])
         UC_Paginate([Paginate Large Inventory])
         UC_Augment([Process Augmented Containers])
-    end
     OSS((Inventory OSS / Client)) --- UC_Root
     UC_Root -. "include" .-> UC_Auth
     UC_Root -. "extend" .-> UC_Paginate

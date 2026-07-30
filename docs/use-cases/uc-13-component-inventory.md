@@ -174,26 +174,24 @@ An Inventory OSS or operator selects a specific network element and issues a rea
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "System Boundary: Network Inventory Controller"
-        UC_ListComp([List Components Within NE])
-        UC_ClassComp([Classify Component via Union Identityref])
-        UC_Hierarchy([Navigate Containment Hierarchy])
-        UC_FRU([Track Field-Replaceable Units])
-        UC_Asset([Track Part, Serial, and Asset Identifiers])
-        UC_MultiChassis([Designate Main Chassis in Multi-Chassis NE])
-        UC_PortInv([Inventory Port Components])
-        UC_AuthComp([Authorize Component Subtree Access])
-        UC_Paginate([Paginate Large Component Lists])
-    end
-    Operator((Inventory OSS / Operator)) --- UC_ListComp
-     UC_ListComp -. "include" .-> UC_ClassComp
-     UC_ListComp -. "include" .-> UC_Hierarchy
-     UC_ListComp -. "include" .-> UC_AuthComp
-     UC_ListComp -. "extend" .-> UC_FRU
-     UC_ListComp -. "extend" .-> UC_Asset
-     UC_ListComp -. "extend" .-> UC_MultiChassis
-     UC_ListComp -. "extend" .-> UC_PortInv
-     UC_ListComp -. "extend" .-> UC_Paginate
+    UC_ListComp([List Components Within NE])
+    UC_ClassComp([Classify Component via Union Identityref])
+    UC_Hierarchy([Navigate Containment Hierarchy])
+    UC_FRU([Track Field-Replaceable Units])
+    UC_Asset([Track Part Serial and Asset Identifiers])
+    UC_MultiChassis([Designate Main Chassis in Multi-Chassis NE])
+    UC_PortInv([Inventory Port Components])
+    UC_AuthComp([Authorize Component Subtree Access])
+    UC_Paginate([Paginate Large Component Lists])
+    Operator((Inventory OSS Operator)) --- UC_ListComp
+    UC_ListComp -. include .-> UC_ClassComp
+    UC_ListComp -. include .-> UC_Hierarchy
+    UC_ListComp -. include .-> UC_AuthComp
+    UC_ListComp -. extend .-> UC_FRU
+    UC_ListComp -. extend .-> UC_Asset
+    UC_ListComp -. extend .-> UC_MultiChassis
+    UC_ListComp -. extend .-> UC_PortInv
+    UC_ListComp -. extend .-> UC_Paginate
     UC_AuthComp --- NACM((NACM System))
     UC_Asset --- AssetSys((Asset Management System))
 ```
@@ -202,38 +200,38 @@ graph TD
 ```mermaid
 stateDiagram-v2
     [*] --> Idle
-    Idle --> RequestReceived : Client issues GET for NE components
-    RequestReceived --> Authorizing : NACM check initiated
-    Authorizing --> AccessDenied : NACM denies read
-    Authorizing --> ValidatingTarget : NACM grants read, NE exists
-    ValidatingTarget --> NENotFound : Target NE not in inventory
-    ValidatingTarget --> Retrieving : Target NE found
-    Retrieving --> ValidatingComponent : Server assembles component entries
-    ValidatingComponent --> DuplicateCompId : Duplicate component-id detected
-    ValidatingComponent --> MissingClass : Mandatory class field absent
-    ValidatingComponent --> InvalidClass : Class identity not in union
+    Idle --> RequestReceived : Client requests NE component list
+    RequestReceived --> Authorizing : NACM permission check
+    Authorizing --> AccessDenied : NACM denies access
+    Authorizing --> ValidatingTarget : NACM grants access
+    ValidatingTarget --> NENotFound : Target NE missing
+    ValidatingTarget --> Retrieving : Target NE located
+    Retrieving --> ValidatingComponent : Assembling component data
+    ValidatingComponent --> ResolvingParents : Validation passed
+    ValidatingComponent --> DuplicateCompId : Duplicate ID detected
+    ValidatingComponent --> MissingClass : Mandatory class absent
+    ValidatingComponent --> InvalidClass : Class identity invalid
     ValidatingComponent --> InvalidUUID : UUID format violation
-    ValidatingComponent --> InvalidMFGDate : mfg-date not ISO 8601
-    ValidatingComponent --> InvalidURI : URI not inet:uri format
-    ValidatingComponent --> ResolvingParents : All component attributes valid
-    DuplicateCompId --> ResolvingParents : Duplicate suppressed, warning logged
-    MissingClass --> ResolvingParents : Entry omitted, error logged
-    InvalidClass --> ResolvingParents : Entry omitted or flagged
+    ValidatingComponent --> InvalidDate : Date format invalid
+    ValidatingComponent --> InvalidURI : URI format invalid
+    DuplicateCompId --> ResolvingParents : Duplicate suppressed
+    MissingClass --> ResolvingParents : Entry omitted
+    InvalidClass --> ResolvingParents : Entry flagged
     InvalidUUID --> ResolvingParents : UUID omitted
-    InvalidMFGDate --> ResolvingParents : Date omitted
-    InvalidURI --> ResolvingParents : Invalid URI removed
-    ResolvingParents --> SelfReference : Self-loop in parent ref
-    ResolvingParents --> DanglingParent : Parent ref target missing
-    ResolvingParents --> Responding : Parent hierarchy resolved
-    SelfReference --> Responding : Self-ref removed, warning logged
-    DanglingParent --> Responding : Dangling ref retained with warning
-    Responding --> LargeList : Component count exceeds page size
-    Responding --> CompleteResponse : Response fits single page
-    LargeList --> Paginating : Pagination applied
-    Paginating --> Responding : First page returned
-    CompleteResponse --> [*] : Client renders full component inventory
-    NENotFound --> [*] : Error returned
-    AccessDenied --> [*] : Error returned
+    InvalidDate --> ResolvingParents : Date omitted
+    InvalidURI --> ResolvingParents : URI removed
+    ResolvingParents --> SelfReference : Parent self-loop detected
+    ResolvingParents --> DanglingParent : Parent reference missing
+    ResolvingParents --> Responding : Hierarchy resolved
+    SelfReference --> Responding : Self-ref removed
+    DanglingParent --> Responding : Dangling ref noted
+    Responding --> LargeList : Exceeds page size
+    Responding --> CompleteResponse : Fits single page
+    LargeList --> Paginating : Paginating result set
+    Paginating --> Responding : Returning first page
+    CompleteResponse --> [*]
+    NENotFound --> [*]
+    AccessDenied --> [*]
 ```
 
 ## 7. Operational Context

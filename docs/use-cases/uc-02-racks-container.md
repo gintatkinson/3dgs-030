@@ -132,7 +132,6 @@ An OSS Operator initiates a query on the racks subtree to retrieve rack physical
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "Network Inventory Location System"
         UC1([Retrieve Rack Inventory])
         UC2([Inspect Chassis Deployment])
         UC3([Assess Rack Capacity])
@@ -140,7 +139,6 @@ graph TD
         UC5([Validate Rack Freshness])
         UC6([Handle Stale Rack])
         UC7([Detect Duplicate Chassis])
-    end
     OSS((OSS Operator)) --- UC1
     OSS --- UC2
     OSS --- UC3

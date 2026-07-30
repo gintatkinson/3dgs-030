@@ -81,14 +81,12 @@ An OSS Operator retrieves rack-location data to determine the physical placement
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "Network Inventory Location System"
         UC1([Retrieve Rack Location])
         UC2([Resolve Location Reference])
         UC3([Interpret Grid Coordinates])
         UC4([Map Rack Layout Within Facility])
         UC5([Handle Unresolved Reference])
         UC6([Handle Empty Placement])
-    end
     OSS((OSS Operator)) --- UC1
     OSS --- UC2
     OSS --- UC3

@@ -117,7 +117,6 @@ A Location Data Provider selects a coordinate representation mode (ellipsoidal o
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph System["Location Coordinate Management System"]
         UC01([Specify Location Coordinates])
         UC02([Record Ellipsoidal Coordinates])
         UC03([Record Cartesian Coordinates])
@@ -127,7 +126,6 @@ graph TD
         UC07([Map to GML Format])
         UC08([Map to KML Format])
         UC09([Validate ISO 6709 Conformance])
-    end
     Provider((Location Data Provider)) --- UC01
     Provider --- UC02
     Provider --- UC03

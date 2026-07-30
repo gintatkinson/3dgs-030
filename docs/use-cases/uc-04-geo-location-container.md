@@ -127,7 +127,6 @@ An OSS Operator sends a retrieval request for geographic coordinate data of a sp
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "Network Inventory Location System"
         UC1([Retrieve Geo-Location])
         UC2([Interpret Reference Frame])
         UC3([Select Coordinate Case])
@@ -135,7 +134,6 @@ graph TD
         UC5([Validate Geo-Location Freshness])
         UC6([Handle Stale Coordinates])
         UC7([Detect Missing Coordinate Case])
-    end
     OSS((OSS Operator)) --- UC1
     OSS --- UC2
     OSS --- UC3

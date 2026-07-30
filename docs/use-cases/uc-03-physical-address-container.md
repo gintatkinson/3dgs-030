@@ -84,13 +84,11 @@ An OSS Operator or automated OSS application retrieves the physical address of a
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "Network Inventory Location System"
         UC1([Retrieve Physical Address])
         UC2([Validate Country-Code Pattern])
         UC3([Verify Dispatch Readiness])
         UC4([Handle Invalid Country Code])
         UC5([Handle Empty Address])
-    end
     OSS((OSS Operator)) --- UC1
     OSS --- UC2
     OSS --- UC3

@@ -115,7 +115,6 @@ An OSS Operator or automated OSS application initiates a query to retrieve, trav
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "Network Inventory Location System"
         UC1([Retrieve Location Inventory])
         UC2([Traverse Location Hierarchy])
         UC3([Filter by Location Type])
@@ -123,7 +122,6 @@ graph TD
         UC5([Verify Temporal Validity])
         UC6([Handle Stale Location])
         UC7([Resolve Parent Reference])
-    end
     OSS((OSS Operator)) --- UC1
     OSS --- UC2
     OSS --- UC3

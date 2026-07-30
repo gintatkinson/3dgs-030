@@ -96,12 +96,10 @@ The Network Operator classifies a topology link's physical medium by setting the
 ### Use Case Diagram
 ```mermaid
 graph TD
-    subgraph "System Boundary: Link Media Type Classification Controller"
         UC_Classify([Classify Link Media Type])
         UC_Validate([Validate Identityref Hierarchy])
         UC_Fallback([Classify as Unknown Fallback])
         UC_Remove([Remove Link Classification])
-    end
     Operator((Network Operator)) --- UC_Classify
     Operator --- UC_Fallback
     Operator --- UC_Remove
